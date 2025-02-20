@@ -12,6 +12,7 @@ import { MusicFooter, NavBar, ProtectedRoute } from "./Components";
 import { UserProvider } from "./Context/UserContext";
 
 import "./App.css";
+import UserProvider from "./Context/UserProvider";
 
 function App() {
   return (
