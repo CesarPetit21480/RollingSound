@@ -9,8 +9,6 @@ import {
 } from "./pages";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { MusicFooter, NavBar, ProtectedRoute } from "./Components";
-import { UserProvider } from "./Context/UserContext";
-
 import "./App.css";
 import UserProvider from "./Context/UserProvider";
 
