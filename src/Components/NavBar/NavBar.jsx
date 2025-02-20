@@ -30,6 +30,11 @@ const NavBar = () => {
               <Nav.Link href="/login" className="active text-uppercase">
                 Login
               </Nav.Link>
+
+              <Nav.Link href="/Administration" className="active text-uppercase">
+                Administracion
+              </Nav.Link>
+
               {/* <Nav.Link
                 href="/Administration"
                 className="active text-uppercase"
