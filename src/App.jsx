@@ -9,35 +9,37 @@ import {
 } from "./pages";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { MusicFooter, NavBar, ProtectedRoute } from "./Components";
+import { UserProvider } from "./Context/UserContext";
 
 import "./App.css";
 
 function App() {
   return (
     <>
-      <Router>
-        <NavBar />
-        <Routes>
-          {/* Publicas */}
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/top10" element={<Top10 />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="*" element={<NotFoundPage />} />
+      <UserProvider>
+        <Router>
+          <NavBar />
+          <Routes>
+            {/* Publicas */}
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/top10" element={<Top10 />} />
+            {/* <Route path="/login" element={<Login />} /> */}
+            <Route path="*" element={<NotFoundPage />} />
 
-          {/* Privadas */}
-          <Route
-            path="/Administration"
-            element={
-              <ProtectedRoute>
-                <Administration />
-              </ProtectedRoute>
-            }
-          />
-        </Routes>    
-      </Router>
-      <MusicFooter />
-     
+            {/* Privadas */}
+            <Route
+              path="/Administration"
+              element={
+                <ProtectedRoute>
+                  <Administration />
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+        </Router>
+        <MusicFooter />
+      </UserProvider>
     </>
   );
 }
