@@ -1,12 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  About,
-  Administration,
-  Home,
-  Login,
-  Top10,
-  NotFoundPage,
-} from "./pages";
+import { About, Administration, Home, Top10, NotFoundPage } from "./pages";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { MusicFooter, NavBar, ProtectedRoute } from "./Components";
 import "./App.css";

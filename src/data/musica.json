@@ -1,0 +1,73 @@
+[
+    {
+        "id": 1,
+        "nombre": "Soda Stereo",
+        "genero": "Rock Argentino",
+        "tema_conocido": "De Música Ligera",
+        "musica": "https://www.youtube.com/watch?v=dRh5cr2Te44",
+        "image": "/cancionAnimal.jpg"
+    },
+    {
+        "id": 2,
+        "nombre": "Los Redondos",
+        "genero": "Rock Argentino",
+        "tema_conocido": "Ji Ji Ji",
+        "musica": "https://www.youtube.com/watch?v=lHRAPIwsS5I"
+    },
+    {
+        "id": 3,
+        "nombre": "Los Piojos",
+        "genero": "Rock Argentino",
+        "tema_conocido": "El Farolito",
+        "musica": "https://www.youtube.com/watch?v=Po5nWHeRG88"
+    },
+    {
+        "id": 4,
+        "nombre": "Divididos",
+        "genero": "Rock Argentino",
+        "tema_conocido": "Ala Delta",
+        "musica": "https://www.youtube.com/watch?v=2rV8btdNg_U"
+    },
+    {
+        "id": 5,
+        "nombre": "Patricio Rey y sus Redonditos de Ricota",
+        "genero": "Rock Argentino",
+        "tema_conocido": "La Bestia Pop",
+        "musica": "https://www.youtube.com/watch?v=iBP5kaMrHsM"
+    },
+    {
+        "id": 6,
+        "nombre": "Calle 13",
+        "genero": "Latino",
+        "tema_conocido": "Atrevete te te",
+        "musica": "https://www.youtube.com/watch?v=lB7OKpa_Skg"
+    },
+    {
+        "id": 7,
+        "nombre": "Shakira",
+        "genero": "Latino",
+        "tema_conocido": "Hips Don't Lie",
+        "musica": "https://www.youtube.com/watch?v=DUT5rEU6pqM"
+    },
+    {
+        "id": 8,
+        "nombre": "Ricky Martin",
+        "genero": "Latino",
+        "tema_conocido": "Livin' la Vida Loca",
+        "musica": "https://www.youtube.com/watch?v=p47fEXGabaY"
+    },
+    {
+        "id": 9,
+        "nombre": "Michael Jackson",
+        "genero": "Pop",
+        "tema_conocido": "Billie Jean",
+        "musica": "https://www.youtube.com/watch?v=Zi_XLOBDo_Y"
+    },
+    {
+        "id": 10,
+        "nombre": "Los Palmeras",
+        "genero": "Cumbia",
+        "tema_conocido": "El Bombón Asesino",
+        "musica": "https://www.youtube.com/watch?v=4z6YLaYKrbc"
+    }
+]
