@@ -32,9 +32,9 @@ const CardDetail = ({ musica }) => {
                       objectFit: "cover",
                     }} // Ajusta el tamaño si es necesario
                   />
-                  {/* <MusicPlayer player={item.player} /> */}
+             
 
-                  <MusicPlayer player={item.player} />
+             
                 </div>
               </CardBody>
               <CardFooter className="d-flex justify-content-center align-items-center "></CardFooter>
