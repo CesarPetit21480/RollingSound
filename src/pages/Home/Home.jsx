@@ -4,9 +4,13 @@ import { CardDetail } from "../../Components";
 const Home = () => {
   const info = Array.isArray(data) ? data : data.musica;
   return (
-    <div className="my-5">
+    <>
+ <div className="my-5">
       <CardDetail musica={info} />
     </div>
+
+    </>
+   
   );
 };
 

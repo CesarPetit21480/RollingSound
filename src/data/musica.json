@@ -1,73 +1,111 @@
 [
     {
         "id": 1,
-        "nombre": "Soda Stereo",
-        "genero": "Rock Argentino",
-        "tema_conocido": "De Música Ligera",
-        "player": "/music/Soda Stereo - Canción Animal (Audio).mp3",
-        "image": "/cancionAnimal.jpg"
-    },
-    {
+        "titulo": "De Música Ligera",
+        "cantante": "Soda Stereo",
+        "categoria": "Rock",
+        "linkImagen": "https://th.bing.com/th?id=OIP.uHO11aWYLWi2rp3dcGl8aQHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2",
+        "duracion": "3:36",
+        "letra": "Ella durmió al calor de las masas, y yo desperté queriendo soñarla..."
+      },
+      {
         "id": 2,
-        "nombre": "Los Redondos",
-        "genero": "Rock Argentino",
-        "tema_conocido": "Ji Ji Ji",
-        "musica": "https://www.youtube.com/watch?v=lHRAPIwsS5I"
-    },
-    {
+        "titulo": "Persiana Americana",
+        "cantante": "Soda Stereo",
+        "categoria": "Rock",
+        "linkImagen": "https://th.bing.com/th/id/OIP.77yM-bV9qsJYlc83hMGfNgHaHa?w=173&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+        "duracion": "4:54",
+        "letra": "Yo te prefiero fuera de foco, es un deseo en tu voz..."
+      },
+      {
         "id": 3,
-        "nombre": "Los Piojos",
-        "genero": "Rock Argentino",
-        "tema_conocido": "El Farolito",
-        "musica": "https://www.youtube.com/watch?v=Po5nWHeRG88"
-    },
-    {
+        "titulo": "Mujer Amante",
+        "cantante": "Rata Blanca",
+        "categoria": "Heavy Metal",
+        "linkImagen": "https://th.bing.com/th/id/OIP.e_NZL-2a70H46hXaHZGcEwHaHa?w=163&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+        "duracion": "6:08",
+        "letra": "Noche tras noche amor, este sentimiento crece..."
+      },
+      {
         "id": 4,
-        "nombre": "Divididos",
-        "genero": "Rock Argentino",
-        "tema_conocido": "Ala Delta",
-        "musica": "https://www.youtube.com/watch?v=2rV8btdNg_U"
-    },
-    {
+        "titulo": "La Leyenda del Hada y el Mago",
+        "cantante": "Rata Blanca",
+        "categoria": "Heavy Metal",
+        "linkImagen": "https://th.bing.com/th/id/OIP.yrkAHse3NfD29IlKgA8tSAHaHa?w=168&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+        "duracion": "5:30",
+        "letra": "Cuenta la historia de un mago que se enamoró..."
+      },
+      {
         "id": 5,
-        "nombre": "Patricio Rey y sus Redonditos de Ricota",
-        "genero": "Rock Argentino",
-        "tema_conocido": "La Bestia Pop",
-        "musica": "https://www.youtube.com/watch?v=iBP5kaMrHsM"
-    },
-    {
+        "titulo": "No era cierto",
+        "cantante": "No Te Va Gustar",
+        "categoria": "Rock Alternativo",
+        "linkImagen": "https://th.bing.com/th/id/OIP.AfhWlpKtf4D6dDRKcC3MDAHaEK?w=273&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+        "duracion": "4:05",
+        "letra": "Todo parecía estar en su lugar, pero al final no era cierto..."
+      },
+      {
         "id": 6,
-        "nombre": "Calle 13",
-        "genero": "Latino",
-        "tema_conocido": "Atrevete te te",
-        "musica": "https://www.youtube.com/watch?v=lB7OKpa_Skg"
-    },
-    {
+        "titulo": "Chau",
+        "cantante": "No Te Va Gustar",
+        "categoria": "Rock Alternativo",
+        "linkImagen": "https://th.bing.com/th/id/OIP.tDj48sEyUx1BCOqKnybvdAHaHa?w=186&h=186&c=7&r=0&o=5&dpr=1.3&pid=1.7 ",
+        "duracion": "3:30",
+        "letra": "No sé si eras un ángel o un rubí, no sé qué hacer sin ti..."
+      },
+      {
         "id": 7,
-        "nombre": "Shakira",
-        "genero": "Latino",
-        "tema_conocido": "Hips Don't Lie",
-        "musica": "https://www.youtube.com/watch?v=DUT5rEU6pqM"
-    },
-    {
+        "titulo": "Sweet Child O' Mine",
+        "cantante": "Guns N' Roses",
+        "categoria": "Rock",
+        "linkImagen": "https://th.bing.com/th/id/OIP.IHSIUgkQsbz-asRqhWHCTQHaD1?w=333&h=179&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+        "duracion": "5:56",
+        "letra": "She's got a smile that it seems to me, reminds me of childhood memories..."
+      },
+      {
         "id": 8,
-        "nombre": "Ricky Martin",
-        "genero": "Latino",
-        "tema_conocido": "Livin' la Vida Loca",
-        "musica": "https://www.youtube.com/watch?v=p47fEXGabaY"
-    },
-    {
+        "titulo": "November Rain",
+        "cantante": "Guns N' Roses",
+        "categoria": "Rock",
+        "linkImagen": "https://th.bing.com/th/id/OIP.7jX5XtYR5Ddg47nx1pb4GgHaHa?w=161&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+        "duracion": "8:57",
+        "letra": "When I look into your eyes, I can see a love restrained..."
+      },
+      {
         "id": 9,
-        "nombre": "Michael Jackson",
-        "genero": "Pop",
-        "tema_conocido": "Billie Jean",
-        "musica": "https://www.youtube.com/watch?v=Zi_XLOBDo_Y"
-    },
-    {
+        "titulo": "Billie Jean",
+        "cantante": "Michael Jackson",
+        "categoria": "Pop",
+        "linkImagen": "https://th.bing.com/th/id/OIP.YTUvIZB6kzJHbgU0RXHrVwHaLH?w=186&h=279&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+        "duracion": "4:54",
+        "letra": "She was more like a beauty queen, from a movie scene..."
+      },
+      {
         "id": 10,
-        "nombre": "Los Palmeras",
-        "genero": "Cumbia",
-        "tema_conocido": "El Bombón Asesino",
-        "musica": "https://www.youtube.com/watch?v=4z6YLaYKrbc"
-    }
-]
+        "titulo": "Smooth Criminal",
+        "cantante": "Michael Jackson",
+        "categoria": "Pop",
+        "linkImagen": "https://th.bing.com/th/id/OIP.8hbkuUcMo5GSP6HYcQgvPwHaHa?w=194&h=194&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+        "duracion": "4:17",
+        "letra": "Annie, are you OK? Can you tell us that you're ok..."
+      },
+      {
+        "id": 11,
+        "titulo": "La Cumbia de los Trapos",
+        "cantante": "Los Palmeras",
+        "categoria": "Cumbia",
+        "linkImagen": "https://th.bing.com/th/id/OIP.NmNX7bupczn3CJqzLFUU2AHaE8?w=236&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+        "duracion": "3:40",
+        "letra": "Yo soy así, un loco más, me gustan los trapos y la cumbia..."
+      },
+      {
+        "id": 12,
+        "titulo": "Universo Paralelo",
+        "cantante": "La Konga",
+        "categoria": "Cumbia",
+        "linkImagen": "https://th.bing.com/th/id/OIP.V4de4nboxX26n6lGt3fzJQHaJk?w=143&h=185&c=7&r=0&o=5&dpr=1.3&pid=1.7",
+        "duracion": "3:55",
+        "letra": "En un universo paralelo, tú y yo ya somos un sueño..."
+      }
+    ]
+ 
