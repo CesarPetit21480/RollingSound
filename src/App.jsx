@@ -3,12 +3,13 @@ import { About, Administration, Home, Top10, NotFoundPage } from "./pages";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { MusicFooter, MusicPlayer, NavBar, ProtectedRoute } from "./Components";
 import "./App.css";
-import UserProvider from "./Context/UserProvider";
+import ContextProvider from "./Context/ContextProvider";
 
 function App() {
   return (
     <>
-      <UserProvider>
+      <ContextProvider>
+        
         <Router>
           <NavBar />
           <Routes>
@@ -29,10 +30,13 @@ function App() {
               }
             />
           </Routes>
+          <div className="player">
+            <MusicPlayer />
+          </div>
         </Router>
-        <MusicPlayer />
+
         <MusicFooter />
-      </UserProvider>
+      </ContextProvider>
     </>
   );
 }

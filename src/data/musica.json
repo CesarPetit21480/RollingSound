@@ -16,7 +16,10 @@
         "categoria": "Rock",
         "linkImagen": "https://th.bing.com/th/id/OIP.77yM-bV9qsJYlc83hMGfNgHaHa?w=173&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
         "duracion": "4:54",
-        "letra": "Yo te prefiero fuera de foco, es un deseo en tu voz..."
+        "letra": "Yo te prefiero fuera de foco, es un deseo en tu voz...",
+        "player" : "/music/Soda Stereo - Persiana Americana (Official Audio).mp3"
+
+        
       },
       {
         "id": 3,
@@ -25,7 +28,9 @@
         "categoria": "Heavy Metal",
         "linkImagen": "https://th.bing.com/th/id/OIP.e_NZL-2a70H46hXaHZGcEwHaHa?w=163&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
         "duracion": "6:08",
-        "letra": "Noche tras noche amor, este sentimiento crece..."
+        "letra": "Noche tras noche amor, este sentimiento crece...",
+        "player" : "/music/Rata Blanca - Mujer Amante.mp3"
+
       },
       {
         "id": 4,

@@ -2,14 +2,15 @@ import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
+import { Context } from "../../Context/Context";
 
 
 
 
 
 const Administration = () => {
-  const [songs, setSongs] = useState([]);
-
+  const [songs, setSongs] = useState([]); 
+  const {user} = useContext(Context);
  
   useEffect(() => {
     const savedSongs = JSON.parse(localStorage.getItem("songs"));
