@@ -27,7 +27,7 @@ const CardDetail = ({ musica }) => {
                     className="mx-3 shadow img-fluid"
                     style={{ maxWidth: "100px", height: "auto" }} // Ajusta el tamaño si es necesario
                   />
-                  <MusicPlayer player={item.player} />
+                  {/* <MusicPlayer player={item.player} /> */}
 
                   {/* <div className="p-2">
                     <CardText>{item.nombre}</CardText>

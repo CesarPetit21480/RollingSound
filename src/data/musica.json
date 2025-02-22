@@ -4,7 +4,7 @@
         "nombre": "Soda Stereo",
         "genero": "Rock Argentino",
         "tema_conocido": "De Música Ligera",
-        "musica": "https://www.youtube.com/watch?v=dRh5cr2Te44",
+        "player": "/music/Soda Stereo - Canción Animal (Audio).mp3",
         "image": "/cancionAnimal.jpg"
     },
     {
