@@ -20,22 +20,24 @@ const CardDetail = ({ musica }) => {
           <div className="col-lg-4" key={item.id}>
             <Card className="h-100 shadow">
               <CardBody>
+                <CardText className="text-success">{item.titulo}</CardText>
                 <div className="d-flex align-items-center">
                   <img
-                    src={item.image}
+                    src={item.linkImagen}
                     alt="pepe"
                     className="mx-3 shadow img-fluid"
-                    style={{ maxWidth: "100px", height: "auto" }} // Ajusta el tamaño si es necesario
+                    style={{
+                      maxWidth: "100px",
+                      height: "100px",
+                      objectFit: "cover",
+                    }} // Ajusta el tamaño si es necesario
                   />
-                  <MusicPlayer player={item.player} />
 
-                  {/* <div className="p-2">
-                    <CardText>{item.nombre}</CardText>
-                  </div> */}
+                  <MusicPlayer player={item.player} />
                 </div>
               </CardBody>
               <CardFooter className="d-flex justify-content-center align-items-center "></CardFooter>
-              <CardTitle className="text-success">{item.genero}</CardTitle>
+              <CardTitle className="text-success">{item.categoria}</CardTitle>
             </Card>
           </div>
         ))}
