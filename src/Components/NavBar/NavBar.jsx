@@ -7,6 +7,7 @@ import "./NavBar.css";
 
 const NavBar = () => {
   const [showLogin, setShowLogin] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
   return (
     <>
       <Navbar
@@ -21,32 +22,38 @@ const NavBar = () => {
               Rooling Sound
             </Link>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Toggle
+            aria-controls="basic-navbar-nav"
+            onClick={() => setIsCollapsed(!isCollapsed)}
+          />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="w-100 d-flex align-items-center">
-              <div className="d-flex flex-grow-1">
-                <Nav.Link href="/" className="active text-uppercase">
-                  Home
-                </Nav.Link>
-                <Nav.Link href="/About" className="active text-uppercase">
-                  About
-                </Nav.Link>
-                <Nav.Link href="/Top10" className="active text-uppercase">
-                  Top10
-                </Nav.Link>
-
-                <Nav.Link
-                  href="/Administration"
-                  className="active text-uppercase"
-                >
-                  Administration
-                </Nav.Link>
-              </div>
-              <Button onClick={() => setShowLogin(true)}>
-                <FaUserAlt size={25} />
-              </Button>
+            <img
+              className={`imgDisco ${isCollapsed ? "collapsed" : ""}`}
+              src="./Logo.png"
+              alt="logo"
+            />
+            <Nav className="ms-auto w-100 d-flex justify-content-start">
+              <Nav.Link href="/" className="active text-uppercase">
+                Home
+              </Nav.Link>
+              <Nav.Link href="/About" className="active text-uppercase">
+                About
+              </Nav.Link>
+              <Nav.Link href="/Top10" className="active text-uppercase">
+                Top10
+              </Nav.Link>
+              <Nav.Link
+                href="/Administration"
+                className="active text-uppercase"
+              >
+                Administration
+              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
+
+          <Button onClick={() => setShowLogin(true)}>
+            <FaUserAlt size={25} />
+          </Button>
         </Container>
       </Navbar>
 
