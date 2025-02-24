@@ -2,3 +2,12 @@
   width: 30%;
   height: 50%;
 }
+.card-imge{
+  max-width: 100px;
+  height: 100px;
+  object-fit: cover;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  margin-right: 12px;
+
+
+}

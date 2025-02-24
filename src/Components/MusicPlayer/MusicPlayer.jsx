@@ -3,7 +3,7 @@ import "react-h5-audio-player/lib/styles.css";
 import data from "../../data/musica.json";
 
 const MusicPlayer = () => {
-  const id = 1;
+  const id =1;
 
   const info = Array.isArray(data) ? data : data.musica;
 
