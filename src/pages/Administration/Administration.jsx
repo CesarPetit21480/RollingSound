@@ -2,27 +2,22 @@ import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
-import { Context } from "../../Context/Context";
-
-
-
-
 
 const Administration = () => {
-  const [songs, setSongs] = useState([]); 
-  const {user} = useContext(Context);
- 
+  const [songs, setSongs] = useState([]);
+
   useEffect(() => {
     const savedSongs = JSON.parse(localStorage.getItem("songs"));
-    
+
     if (!savedSongs || savedSongs.length === 0) {
       const defaultSongs = [
         {
           id: 1,
           title: "De Música Ligera",
           artist: "Soda Stereo",
-          image: "https://i.pinimg.com/736x/dd/e7/7d/dde77df6a4baf11fb4f296677657ccdd--rock-argentino-soda-stereo.jpg"
-        }
+          image:
+            "https://i.pinimg.com/736x/dd/e7/7d/dde77df6a4baf11fb4f296677657ccdd--rock-argentino-soda-stereo.jpg",
+        },
       ];
       setSongs(defaultSongs);
       localStorage.setItem("songs", JSON.stringify(defaultSongs));
@@ -30,15 +25,13 @@ const Administration = () => {
       setSongs(savedSongs);
     }
   }, []);
-  
 
-  
   useEffect(() => {
     localStorage.setItem("songs", JSON.stringify(songs));
   }, [songs]);
 
   const handleUpdateSong = (updatedSong) => {
-    const updatedSongs = songs.map(song =>
+    const updatedSongs = songs.map((song) =>
       song.id === updatedSong.id ? updatedSong : song
     );
     setSongs(updatedSongs);
@@ -91,15 +84,24 @@ const SongCard = ({ song, onUpdate }) => {
                 onChange={handleChange}
               />
             </Form.Group>
-            <Button variant="success" type="submit" className="mt-2">Guardar</Button>
-            <Button variant="secondary" className="mt-2 ms-2" onClick={() => setIsEditing(false)}>Cancelar</Button>
+            <Button variant="success" type="submit" className="mt-2">
+              Guardar
+            </Button>
+            <Button
+              variant="secondary"
+              className="mt-2 ms-2"
+              onClick={() => setIsEditing(false)}
+            >
+              Cancelar
+            </Button>
           </Form>
         ) : (
           <>
             <Card.Title>{song.title}</Card.Title>
             <Card.Text>{song.artist}</Card.Text>
-            <Button variant="primary" onClick={() => setIsEditing(true)}>Editar</Button>
-            
+            <Button variant="primary" onClick={() => setIsEditing(true)}>
+              Editar
+            </Button>
           </>
         )}
       </Card.Body>
@@ -108,4 +110,3 @@ const SongCard = ({ song, onUpdate }) => {
 };
 
 export default Administration;
-

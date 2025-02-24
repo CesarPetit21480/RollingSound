@@ -9,7 +9,6 @@ function App() {
   return (
     <>
       <ContextProvider>
-        
         <Router>
           <NavBar />
           <Routes>
@@ -22,7 +21,7 @@ function App() {
 
             {/* Privadas */}
             <Route
-              path="/Administration"
+              path="/administration"
               element={
                 <ProtectedRoute>
                   <Administration />
@@ -30,11 +29,10 @@ function App() {
               }
             />
           </Routes>
-          <div className="player">
-            <MusicPlayer />
-          </div>
         </Router>
-
+        <div className="player">
+          <MusicPlayer />
+        </div>
         <MusicFooter />
       </ContextProvider>
     </>
