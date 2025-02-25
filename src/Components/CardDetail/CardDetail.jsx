@@ -12,7 +12,7 @@ import MusicPlayer from "../MusicPlayer/MusicPlayer";
 import MusicDetail from "../MusicDetail/MusicDetail";
 import { number } from "yup";
 
-const CardDetail = ({ musica }) => {
+const CardDetail = ({musica}) => {
   //maneja la visibilidad del modal
   const [selectedMusic, setSelectedMusica] = useState(null); //estado par manejar los datos de la musica
   const [selectedMusicId, setSelectedMusicId] = useState(null);
@@ -40,7 +40,7 @@ const CardDetail = ({ musica }) => {
             duracion,
             linkImagen,
             categoria,
-            player,
+            music_route,
           }) => (
             <div className="col-lg-4" key={id}>
               <Card
@@ -53,22 +53,27 @@ const CardDetail = ({ musica }) => {
                     categoria,
                     duracion,
                     cantante,
+                    music_route,
                   })
                 }
               >
                 <CardBody>
                   <CardText className="text-success">{titulo}</CardText>
-                  <div className="d-flex align-items-center " >
+                  <div className="d-flex align-items-center ">
                     <img
                       src={linkImagen}
                       alt={titulo}
                       className="card-imge"
-                      style={{ width: '100px', height: '100px', objectFit: 'cover' }}
+                      style={{
+                        width: "100px",
+                        height: "100px",
+                        objectFit: "cover",
+                      }}
                       // Ajusta el tamaño si es necesario
                     />
                     {/* <MusicPlayer player={item.player} /> */}
 
-                    <MusicPlayer player={player} />
+                    <MusicPlayer id={id} />
                   </div>
                 </CardBody>
                 <CardFooter className="d-flex justify-content-center align-items-center "></CardFooter>
