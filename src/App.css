@@ -42,6 +42,13 @@ body {
   }
 }
 
+.reproduccion{
+
+  /* display: none; */
+  background-color: red;
+  
+}
+
 @media (max-width: 768px) {
   .navbar-collapse.collapsing .imgDisco,
   .navbar-collapse.show .imgDisco {
