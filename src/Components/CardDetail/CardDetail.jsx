@@ -8,14 +8,17 @@ import {
 } from "react-bootstrap";
 import "./CardDetail.css";
 import { Context } from "../../Context/Context";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
-// eslint-disable-next-line react/prop-types
 const CardDetail = ({ musica }) => {
   const { setTracks } = useContext(Context);
+  const [currentTrack, setCurrentTrack] = useState(null);
+  const [disabledTrack, setDisabledTrack] = useState(null);
 
   const handleClick = (item) => {
     setTracks(item.id);
+    setCurrentTrack(item.id);
+    setDisabledTrack(item.id); // Deshabilita el botón de play
   };
 
   return (
@@ -39,10 +42,44 @@ const CardDetail = ({ musica }) => {
                       height: "100px",
                       objectFit: "cover",
                     }}
-                    onClick={() => handleClick(item)}
                   />
+                  <img
+                    src="./play.png"
+                    alt="play"
+                    onClick={() => handleClick(item)}
+                    className={`cursor-pointer ${
+                      disabledTrack === item.id ? "disabled" : ""
+                    }`}
+                    style={{
+                      cursor:
+                        disabledTrack === item.id ? "not-allowed" : "pointer",
+                      opacity: disabledTrack === item.id ? 0.5 : 1,
+                      pointerEvents:
+                        disabledTrack === item.id ? "none" : "auto",
+                      width: "50px",
+                      height: "50px",
+                    }}
+                  />
+                  <div className="d-flex flex-column">
+                    <img
+                      src="./Logo.png"
+                      alt="logo"
+                      className={` ${
+                        currentTrack === item.id ? "imgDisco" : ""
+                      }`}
+                      style={{
+                        width: "80px",
+                        height: "80px",
+                        marginLeft: "50px",
+                      }}
+                    />
 
-                  <img src="./Logo.png" alt="logo" />
+                    {currentTrack === item.id ? (
+                      <div>Esta Sonando: {item.titulo}</div>
+                    ) : (
+                      ""
+                    )}
+                  </div>
                 </div>
               </CardBody>
               <CardFooter className="d-flex justify-content-center align-items-center "></CardFooter>
