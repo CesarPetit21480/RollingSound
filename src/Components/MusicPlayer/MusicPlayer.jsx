@@ -1,44 +1,40 @@
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import data from "../../data/musica.json";
+import { Context } from "../../Context/Context";
+import { useContext, useState,useEffect } from "react";
 
-/*const MusicPlayer = () => {
-const id =1;
+const MusicPlayer = () => {
+  const { track } = useContext(Context);
+  const [currentTrack, setCurrentTrack] = useState(null);
 
   const info = Array.isArray(data) ? data : data.musica;
 
-  const musicaElegida = info.find((m) => m.id === id);
-  console.log('recibo el id')
-  
+  const musicaElegida = info.find((m) => m.id === track);
+
+  useEffect(() => {
+    if (musicaElegida) {
+      setCurrentTrack(musicaElegida.player);
+    }
+  }, [track]);
+
+  if (!currentTrack) return null;
 
   return (
     <AudioPlayer
       autoPlay
-      src={musicaElegida.music_route}
-      onPlay={(e) => console.log("onPlay")}
-      // other props here
+      src={currentTrack || ""}
+      onPlay={() => console.log("Reproduciendo:", currentTrack)}
+      onEnded={() => console.log("Canción terminada")}
+      showSkipControls={false}
+      showJumpControls={false}
+      volume={0.8}
+      // style={{ background:"tranparent" }}
     />
   );
 };
 
 
-export default MusicPlayer;*/
-const MusicPlayer = ({ id }) => {
-  const info = Array.isArray(data) ? data : data.musica;
 
-  const musicaElegida = info.find((m) => m.id === id);
-
-  if (!musicaElegida) {
-    return <p>No se encontró la canción</p>;
-  }
-
-  return (
-    <AudioPlayer
-      autoPlay
-      src={musicaElegida.music_route}
-      onPlay={() => console.log("Reproduciendo:", musicaElegida.titulo)}
-    />
-  );
-};
 
 export default MusicPlayer;

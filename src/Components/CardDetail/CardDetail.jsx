@@ -1,29 +1,21 @@
-import React, { useState } from "react";
+/* eslint-disable react/prop-types */
 import {
   Card,
   CardBody,
   CardFooter,
   CardTitle,
   CardText,
-  NavItem,
 } from "react-bootstrap";
 import "./CardDetail.css";
-import MusicPlayer from "../MusicPlayer/MusicPlayer";
-import MusicDetail from "../MusicDetail/MusicDetail";
-import { number } from "yup";
+import { Context } from "../../Context/Context";
+import { useContext } from "react";
 
-const CardDetail = ({musica}) => {
-  //maneja la visibilidad del modal
-  const [selectedMusic, setSelectedMusica] = useState(null); //estado par manejar los datos de la musica
-  const [selectedMusicId, setSelectedMusicId] = useState(null);
+// eslint-disable-next-line react/prop-types
+const CardDetail = ({ musica }) => {
+  const { setTracks } = useContext(Context);
 
-  const handleOpenModal = (item) => {
-    setSelectedMusica(item); //establece la musica
-    setSelectedMusicId(item.id);
-  };
-  const handleCloseModal = () => {
-    setSelectedMusica(null);
-    setSelectedMusicId(null);
+  const handleClick = (item) => {
+    setTracks(item.id);
   };
 
   return (
@@ -32,69 +24,36 @@ const CardDetail = ({musica}) => {
         Rolling Sound Tracks
       </h2>
       <div className="row g-5">
-        {musica.map(
-          ({
-            id,
-            titulo,
-            cantante,
-            duracion,
-            linkImagen,
-            categoria,
-            music_route,
-          }) => (
-            <div className="col-lg-4" key={id}>
-              <Card
-                className="h-100 shadow"
-                onClick={() =>
-                  handleOpenModal({
-                    id,
-                    titulo,
-                    linkImagen,
-                    categoria,
-                    duracion,
-                    cantante,
-                    music_route,
-                  })
-                }
-              >
-                <CardBody>
-                  <CardText className="text-success">{titulo}</CardText>
-                  <div className="d-flex align-items-center ">
-                    <img
-                      src={linkImagen}
-                      alt={titulo}
-                      className="card-imge"
-                      style={{
-                        width: "100px",
-                        height: "100px",
-                        objectFit: "cover",
-                      }}
-                      // Ajusta el tamaño si es necesario
-                    />
-                    {/* <MusicPlayer player={item.player} /> */}
-
-                    <MusicPlayer id={id} />
-                  </div>
-                </CardBody>
-                <CardFooter className="d-flex justify-content-center align-items-center "></CardFooter>
-                <CardTitle className="text-success">{categoria}</CardTitle>
-              </Card>
-              {/*renderiza el modal solo si showModal esta en true*/}
-
-              {selectedMusicId === id && (
-                <div className="music-detail-container ">
-                  <MusicDetail
-                    musica={selectedMusic}
-                    onClose={handleCloseModal}
+        {musica.map((item) => (
+          <div className="col-lg-4" key={item.id}>
+            <Card className="h-100 shadow">
+              <CardBody>
+                <CardText className="text-success">{item.titulo}</CardText>
+                <div className="d-flex align-items-center">
+                  <img
+                    src={item.linkImagen}
+                    alt="pepe"
+                    className="mx-3 shadow img-fluid"
+                    style={{
+                      maxWidth: "100px",
+                      height: "100px",
+                      objectFit: "cover",
+                    }}
+                    onClick={() => handleClick(item)}
                   />
+
+                  <img src="./Logo.png" alt="logo" />
                 </div>
-              )}
-            </div>
-          )
-        )}
+              </CardBody>
+              <CardFooter className="d-flex justify-content-center align-items-center "></CardFooter>
+              <CardTitle className="text-success">{item.categoria}</CardTitle>
+            </Card>
+          </div>
+        ))}
       </div>
     </div>
   );
 };
 
 export default CardDetail;
+

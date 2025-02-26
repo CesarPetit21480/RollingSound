@@ -33,17 +33,18 @@ const NavBar = () => {
               alt="logo"
             />
             <Nav className="ms-auto w-100 d-flex justify-content-start">
-              <Nav.Link href="/" className="active text-uppercase">
+              <Nav.Link as={Link} to="/" className="active text-uppercase">
                 Home
               </Nav.Link>
-              <Nav.Link href="/About" className="active text-uppercase">
+              <Nav.Link as={Link} to="/about" className="active text-uppercase">
                 About
               </Nav.Link>
-              <Nav.Link href="/Top10" className="active text-uppercase">
+              <Nav.Link as={Link} to="/top10" className="active text-uppercase">
                 Top10
               </Nav.Link>
               <Nav.Link
-                href="/Administration"
+                as={Link}
+                to="/administration"
                 className="active text-uppercase"
               >
                 Administration
