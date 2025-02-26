@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 import {
   Card,
   CardBody,
@@ -7,9 +7,17 @@ import {
   CardText,
 } from "react-bootstrap";
 import "./CardDetail.css";
-import MusicPlayer from "../MusicPlayer/MusicPlayer";
+import { Context } from "../../Context/Context";
+import { useContext } from "react";
 
+// eslint-disable-next-line react/prop-types
 const CardDetail = ({ musica }) => {
+  const { setTracks } = useContext(Context);
+
+  const handleClick = (item) => {
+    setTracks(item.id);
+  };
+
   return (
     <div className="card-section container">
       <h2 className="text-center mb-5 text-uppercase fw-bold fs-1">
@@ -30,11 +38,11 @@ const CardDetail = ({ musica }) => {
                       maxWidth: "100px",
                       height: "100px",
                       objectFit: "cover",
-                    }} // Ajusta el tamaño si es necesario
+                    }}
+                    onClick={() => handleClick(item)}
                   />
-             
 
-             
+                  <img src="./Logo.png" alt="logo" />
                 </div>
               </CardBody>
               <CardFooter className="d-flex justify-content-center align-items-center "></CardFooter>
