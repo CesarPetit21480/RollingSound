@@ -8,14 +8,27 @@ import {
 } from "react-bootstrap";
 import "./CardDetail.css";
 import { Context } from "../../Context/Context";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import MusicDetail from "../MusicDetail/MusicDetail";
 
 // eslint-disable-next-line react/prop-types
 const CardDetail = ({ musica }) => {
   const { setTracks } = useContext(Context);
-
-  const handleClick = (item) => {
+  const [selectedMusic, setSelectedMusic] = useState(null);
+  const [showDetail, setShowDetail] = useState(false);
+  const handleShowDetail = (item) => {
+    setSelectedMusic(item);
+    setShowDetail(true);
+    console.log("Modal abierto, música seleccionada:", item);
+  };
+  const handleClick = (e, item) => {
+    e.stopPropagation();
     setTracks(item.id);
+    setSelectedMusic(item); //guarda el item seleccionado para mostrrlo en el modal de detalle
+  };
+  const handleClose = () => {
+    setSelectedMusic(null);
+    setShowDetail(false)
   };
 
   return (
@@ -26,20 +39,23 @@ const CardDetail = ({ musica }) => {
       <div className="row g-5">
         {musica.map((item) => (
           <div className="col-lg-4" key={item.id}>
-            <Card className="h-100 shadow">
+            <Card
+              className="h-100 shadow"
+              onClick={() =>handleShowDetail(item)}
+            >
               <CardBody>
                 <CardText className="text-success">{item.titulo}</CardText>
                 <div className="d-flex align-items-center">
                   <img
                     src={item.linkImagen}
-                    alt="pepe"
+                    alt={item.titulo}
                     className="mx-3 shadow img-fluid"
                     style={{
                       maxWidth: "100px",
                       height: "100px",
                       objectFit: "cover",
                     }}
-                    onClick={() => handleClick(item)}
+                    onClick={(e) => handleClick(e,item)}
                   />
 
                   <img src="./Logo.png" alt="logo" />
@@ -51,9 +67,11 @@ const CardDetail = ({ musica }) => {
           </div>
         ))}
       </div>
+
+      {/* Modal de detalle */}
+      {showDetail && <MusicDetail musica={selectedMusic} onClose={handleClose} />}
     </div>
   );
 };
 
 export default CardDetail;
-

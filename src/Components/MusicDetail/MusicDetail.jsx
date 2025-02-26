@@ -1,11 +1,11 @@
 import "./MusicDetail.css";
 import { Card, Button, CardBody, CardTitle, CardText } from "react-bootstrap";
 
-function MusicDetail({ musica, onClose, isCollapsed }) {
+function MusicDetail({ musica,onClose,isCollapsed}) {
   if (!musica) return null;
   return (
-    <div className="music-detail  " onClick={onclose}>
-      <Card className="music-datail-card   " onClick={(e) => e.stopPropagation()}>
+    <div className="music-detail  " onClick={onClose}>
+      <Card className="music-detail-card   " onClick={(e) => e.stopPropagation()}>
         <div className="row-MusicDetail bg-dark  border-2">
           <img
             className={`imgDisco ${isCollapsed ? "collapsed" : ""}  m-2`}
@@ -22,6 +22,7 @@ function MusicDetail({ musica, onClose, isCollapsed }) {
             style={{ width: '150px', height: '150px' }} // Ajusta el tamaño según sea necesario
           />
           <CardBody className="text-success">
+            // eslint-disable-next-line react/prop-types
             <CardTitle>{musica.titulo}</CardTitle>
             <CardText>
               Cantante: <strong>{musica.cantante}</strong>

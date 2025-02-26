@@ -1,0 +1,26 @@
+.music-detail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 20px; /* Para evitar que quede pegado a los bordes en pantallas pequeñas */
+  
+  }
+  
+  .music-datail-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%; /* Para que se adapte a pantallas pequeñas */
+    max-width: 500px; /* Tamaño máximo */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra elegante */
+    border-radius: 10px;
+
+  }
+  
