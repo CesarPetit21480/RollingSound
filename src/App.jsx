@@ -25,6 +25,7 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Administration />
+             
                 </ProtectedRoute>
               }
             />
