@@ -5,6 +5,7 @@ import { MusicFooter, MusicPlayer, NavBar, ProtectedRoute } from "./Components";
 import "./App.css";
 import UserProvider from "./Context/UserProvider";
 
+
 function App() {
   return (
     <>

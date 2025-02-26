@@ -1,0 +1,76 @@
+.error-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  h5 {
+    font-size: 16px;
+  }
+  
+  .error-code {
+    font-size: 8vw; 
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  p {
+    font-size: 18px;
+  }
+
+  .error-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .error-code {
+    font-size: 250px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; 
+    margin-bottom: 40px;
+  }
+  
+  .zero-image img {
+    width: 200px; 
+    height: auto;
+    vertical-align: middle;
+        animation: girar 2s linear infinite;
+      }
+  
+
+  /* Responsivo */
+  @media (max-width: 768px) {
+    .error-code {
+      font-size: 50px;
+    }
+    .zero-image img {
+      width: 100px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .error-code {
+      font-size: 30px;
+    }
+    .zero-image img {
+      width: 80px;
+    }
+  }
+  
+  
+  /* Ajustes adicionales para dispositivos más pequeños */
+  @media (max-width: 768px) {
+    .error-code {
+      font-size: 100px; 
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .error-code {
+      font-size: 80px; 
+    }
+  }
+
+  
