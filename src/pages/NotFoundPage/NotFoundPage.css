@@ -3,26 +3,30 @@
     margin-top: 50px;
   }
   
-  h5 {
-    font-size: 16px;
+h5 {
+   font-size: 16px;
   }
   
-  .error-code {
+.error-code {
     font-size: 8vw; 
     font-weight: bold;
     margin: 0;
   }
   
-  p {
+p {
     font-size: 18px;
   }
 
-  .error-container {
+.error-container {
     text-align: center;
-    margin-top: 50px;
   }
   
-  .error-code {
+.error-word {
+    font-size: 35px;
+    margin-bottom: -20px;
+  }
+
+.error-code {
     font-size: 250px;
     font-weight: bold;
     display: flex;
@@ -32,7 +36,7 @@
     margin-bottom: 40px;
   }
   
-  .zero-image img {
+.zero-image img {
     width: 200px; 
     height: auto;
     vertical-align: middle;
@@ -40,6 +44,12 @@
       }
   
 
+.custom-link {
+    color: #1b2394; /* Cambia el color a lo que desees */
+    font-weight: bold;
+}
+      
+      
   /* Responsivo */
   @media (max-width: 768px) {
     .error-code {
@@ -59,7 +69,8 @@
     }
   }
   
-  
+  /* ver el responsive de la palabra error */
+
   /* Ajustes adicionales para dispositivos más pequeños */
   @media (max-width: 768px) {
     .error-code {
