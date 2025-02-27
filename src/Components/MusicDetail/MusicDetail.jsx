@@ -1,51 +1,62 @@
-import "./MusicDetail.css";
-import { Card, Button, CardBody, CardTitle, CardText } from "react-bootstrap";
 
-function MusicDetail({ musica,onClose,isCollapsed}) {
+
+
+import { Modal, Button } from "react-bootstrap";
+import "./MusicDetail.css";
+
+
+function MusicDetail({musica,onClose,isCollapsed}) {
+  console.log("Datos de musica:",musica)
   if (!musica) return null;
+
   return (
-    <div className="music-detail  " onClick={onClose}>
-      <Card className="music-detail-card   " onClick={(e) => e.stopPropagation()}>
-        <div className="row-MusicDetail bg-dark  border-2">
+    <Modal
+      show={true}
+      onHide={onClose}
+      centered
+      size="lg"
+      backdrop={false}
+      className="bg-dark text-success"
+      dialogClassName="modal-dialog-transparent"
+    >
+      <Modal.Header closeButton className="border-success align-content-between">
+      <div className="d-flex align-items-center"> {/* Alinea título e imagen */}
+          <Modal.Title className="text-success">{musica.titulo}</Modal.Title>
           <img
-            className={`imgDisco ${isCollapsed ? "collapsed" : ""}  m-2`}
+            className={`imgDisco ${isCollapsed ? "collapsed" : ""}`}
             src="./Logo.png"
             alt="logo"
+            style={{ width: "50px", height: "50px", marginLeft: "10px" }} // Asegura separación entre el título y la imagen
           />
         </div>
-          <hr style={{ borderTop: '10px solid #28a745', backgroundColor: 'transparent', margin: 0 }} />
-        <div className="d-flex bg-dark border-2 ">
+      </Modal.Header>
+      <Modal.Body>
+        <div className="d-flex">
           <img
             src={musica.linkImagen}
             alt={musica.titulo}
-            className="music-detail-image"
-            style={{ width: '150px', height: '150px' }} // Ajusta el tamaño según sea necesario
+            className="rounded me-3"
+            style={{ width: "180px", height: "180px", objectFit: "cover" }}
           />
-          <CardBody className="text-success">
-            // eslint-disable-next-line react/prop-types
-            <CardTitle>{musica.titulo}</CardTitle>
-            <CardText>
+          <div>
+            <p>
               Cantante: <strong>{musica.cantante}</strong>
-            </CardText>
-            <CardText>
-              Categoria: <strong>{musica.categoria}</strong>
-            </CardText>
-            <CardText>
-              Duracion: <strong>{musica.duracion}</strong>
-            </CardText>
-            <Button
-              variant="success"
-              onClick={() => {
-                console.log("cerrar modal"); // Log de consola si lo necesitas
-                onClose(); // Cierra el modal
-              }}
-            >
-              Cerrar
-            </Button>
-          </CardBody>
+            </p>
+            <p>
+              Categoría: <strong>{musica.categoria}</strong>
+            </p>
+            <p>
+              Duración: <strong>{musica.duracion}</strong>
+            </p>
+          </div>
         </div>
-      </Card>
-    </div>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="success" className="text-dark" onClick={onClose}>
+          Cerrar
+        </Button>
+      </Modal.Footer>
+    </Modal>
   );
 }
 

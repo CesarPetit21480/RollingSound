@@ -79,7 +79,7 @@
     "linkImagen": "https://th.bing.com/th/id/OIP.7jX5XtYR5Ddg47nx1pb4GgHaHa?w=161&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
     "duracion": "8:57",
     "letra": "When I look into your eyes, I can see a love restrained...",
-    "player": "/music/Guns N` Roses   November rain.mp3"
+    "player": "/music/Guns N' Roses - November Rain.mp3"
   },
   {
     "id": 9,
@@ -88,7 +88,8 @@
     "categoria": "Pop",
     "linkImagen": "https://th.bing.com/th/id/OIP.YTUvIZB6kzJHbgU0RXHrVwHaLH?w=186&h=279&c=7&r=0&o=5&dpr=1.3&pid=1.7",
     "duracion": "4:54",
-    "letra": "She was more like a beauty queen, from a movie scene..."
+    "letra": "She was more like a beauty queen, from a movie scene...",
+   "player":"/music/Michael Jackson - Billie Jean (Official Video).mp3"
   },
   {
     "id": 10,
@@ -97,16 +98,18 @@
     "categoria": "Pop",
     "linkImagen": "https://th.bing.com/th/id/OIP.8hbkuUcMo5GSP6HYcQgvPwHaHa?w=194&h=194&c=7&r=0&o=5&dpr=1.3&pid=1.7",
     "duracion": "4:17",
-    "letra": "Annie, are you OK? Can you tell us that you're ok..."
+    "letra": "Annie, are you OK? Can you tell us that you're ok...",
+    "player":"/music/Michael Jackson - Smooth Criminal (Official Video).mp3"
   },
   {
     "id": 11,
-    "titulo": "La Cumbia de los Trapos",
+    "titulo": "soy sabalero",
     "cantante": "Los Palmeras",
     "categoria": "Cumbia",
     "linkImagen": "https://th.bing.com/th/id/OIP.NmNX7bupczn3CJqzLFUU2AHaE8?w=236&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
     "duracion": "3:40",
-    "letra": "Yo soy así, un loco más, me gustan los trapos y la cumbia..."
+    "letra": "Yo soy así, un loco más, me gustan los trapos y la cumbia...",
+     "player":"/music/Los Palmeras - Soy Sabalero (Versión Cancha)  Video Oficial.mp3"
   },
   {
     "id": 12,
@@ -115,6 +118,7 @@
     "categoria": "Cumbia",
     "linkImagen": "https://th.bing.com/th/id/OIP.V4de4nboxX26n6lGt3fzJQHaJk?w=143&h=185&c=7&r=0&o=5&dpr=1.3&pid=1.7",
     "duracion": "3:55",
-    "letra": "En un universo paralelo, tú y yo ya somos un sueño..."
+    "letra": "En un universo paralelo, tú y yo ya somos un sueño...",
+     "player":"/music/La Konga, Nahuel Pennisi - UNIVERSO PARALELO (Video Oficial).mp3 "
   }
 ]
