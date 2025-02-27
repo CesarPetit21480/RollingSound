@@ -1,6 +1,3 @@
-
-
-
 import { Modal, Button } from "react-bootstrap";
 import "./MusicDetail.css";
 
