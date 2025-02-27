@@ -5,6 +5,7 @@ import { MusicFooter, MusicPlayer, NavBar, ProtectedRoute } from "./Components";
 import "./App.css";
 import ContextProvider from "./Context/ContextProvider";
 
+
 function App() {
   return (
     <>
@@ -25,6 +26,7 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Administration />
+             
                 </ProtectedRoute>
               }
             />

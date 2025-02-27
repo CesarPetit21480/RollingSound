@@ -9,26 +9,16 @@ import {
 import "./CardDetail.css";
 import { Context } from "../../Context/Context";
 import { useContext, useState } from "react";
-import MusicDetail from "../MusicDetail/MusicDetail";
 
-// eslint-disable-next-line react/prop-types
 const CardDetail = ({ musica }) => {
   const { setTracks } = useContext(Context);
-  const [selectedMusic, setSelectedMusic] = useState(null);
-  const [showDetail, setShowDetail] = useState(false);
-  const handleShowDetail = (item) => {
-    setSelectedMusic(item);
-    setShowDetail(true);
-    console.log("Modal abierto, música seleccionada:", item);
-  };
-  const handleClick = (e, item) => {
-    e.stopPropagation();
+  const [currentTrack, setCurrentTrack] = useState(null);
+  const [disabledTrack, setDisabledTrack] = useState(null);
+
+  const handleClick = (item) => {
     setTracks(item.id);
-    setSelectedMusic(item); //guarda el item seleccionado para mostrrlo en el modal de detalle
-  };
-  const handleClose = () => {
-    setSelectedMusic(null);
-    setShowDetail(false)
+    setCurrentTrack(item.id);
+    setDisabledTrack(item.id); // Deshabilita el botón de play
   };
 
   return (
@@ -39,26 +29,57 @@ const CardDetail = ({ musica }) => {
       <div className="row g-5">
         {musica.map((item) => (
           <div className="col-lg-4" key={item.id}>
-            <Card
-              className="h-100 shadow"
-              onClick={() =>handleShowDetail(item)}
-            >
+            <Card className="h-100 shadow">
               <CardBody>
                 <CardText className="text-success">{item.titulo}</CardText>
                 <div className="d-flex align-items-center">
                   <img
                     src={item.linkImagen}
-                    alt={item.titulo}
+                    alt="pepe"
                     className="mx-3 shadow img-fluid"
                     style={{
                       maxWidth: "100px",
                       height: "100px",
                       objectFit: "cover",
                     }}
-                    onClick={(e) => handleClick(e,item)}
                   />
+                  <img
+                    src="./play.png"
+                    alt="play"
+                    onClick={() => handleClick(item)}
+                    className={`cursor-pointer ${
+                      disabledTrack === item.id ? "disabled" : ""
+                    }`}
+                    style={{
+                      cursor:
+                        disabledTrack === item.id ? "not-allowed" : "pointer",
+                      opacity: disabledTrack === item.id ? 0.5 : 1,
+                      pointerEvents:
+                        disabledTrack === item.id ? "none" : "auto",
+                      width: "50px",
+                      height: "50px",
+                    }}
+                  />
+                  <div className="d-flex flex-column">
+                    <img
+                      src="./Logo.png"
+                      alt="logo"
+                      className={` ${
+                        currentTrack === item.id ? "imgDisco" : ""
+                      }`}
+                      style={{
+                        width: "80px",
+                        height: "80px",
+                        marginLeft: "50px",
+                      }}
+                    />
 
-                  <img src="./Logo.png" alt="logo" />
+                    {currentTrack === item.id ? (
+                      <div>Esta Sonando: {item.titulo}</div>
+                    ) : (
+                      ""
+                    )}
+                  </div>
                 </div>
               </CardBody>
               <CardFooter className="d-flex justify-content-center align-items-center "></CardFooter>
@@ -67,9 +88,6 @@ const CardDetail = ({ musica }) => {
           </div>
         ))}
       </div>
-
-      {/* Modal de detalle */}
-      {showDetail && <MusicDetail musica={selectedMusic} onClose={handleClose} />}
     </div>
   );
 };
