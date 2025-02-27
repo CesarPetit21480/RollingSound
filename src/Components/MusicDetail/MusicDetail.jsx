@@ -1,9 +1,8 @@
 import { Modal, Button } from "react-bootstrap";
 import "./MusicDetail.css";
 
-
-function MusicDetail({musica,onClose,isCollapsed}) {
-  console.log("Datos de musica:",musica)
+function MusicDetail({ musica, onClose, isCollapsed }) {
+  console.log("Datos de musica:", musica);
   if (!musica) return null;
 
   return (
@@ -16,8 +15,13 @@ function MusicDetail({musica,onClose,isCollapsed}) {
       className="bg-dark text-success"
       dialogClassName="modal-dialog-transparent"
     >
-      <Modal.Header closeButton className="border-success align-content-between">
-      <div className="d-flex align-items-center"> {/* Alinea título e imagen */}
+      <Modal.Header
+        closeButton
+        className="border-success align-content-between"
+      >
+        <div className="d-flex align-items-center">
+          {" "}
+          {/* Alinea título e imagen */}
           <Modal.Title className="text-success">{musica.titulo}</Modal.Title>
           <img
             className={`imgDisco ${isCollapsed ? "collapsed" : ""}`}
