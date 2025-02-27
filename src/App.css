@@ -8,6 +8,9 @@
 
 body {
   font-family: "poppins", serif;
+  background-image: url("/public/background/fondowhits.png");
+  background-size: cover; 
+  background-position: center; 
 }
 
 #root {
