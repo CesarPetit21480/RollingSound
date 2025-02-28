@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "nombre":"Elcira Gimenez",
+    "edad":"36 años",
+    "proyecto":"Scrum Master, Logo y Pág. Administración",
+    "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8GDrMMZ3vCvSZHCYRrj9AvIOIN5rZIXDyKA&s"
+  },
+  {
+    "id": 2,
+    "nombre":"Joaquín Pavón",
+    "edad":"24 años",
+    "proyecto":"Pág. Administración",
+    "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8GDrMMZ3vCvSZHCYRrj9AvIOIN5rZIXDyKA&s"
+  },
+  {
+    "id": 3,
+    "nombre":"Mario Chávez",
+    "edad":"49 años",
+    "proyecto":"Pág. Detalle",
+    "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8GDrMMZ3vCvSZHCYRrj9AvIOIN5rZIXDyKA&s"
+  },
+  {
+    "id": 4,
+    "nombre":"Eduardo Marquez",
+    "edad":"29 años",
+    "proyecto":"Pág. About",
+    "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8GDrMMZ3vCvSZHCYRrj9AvIOIN5rZIXDyKA&s"
+  },
+  {
+    "id": 5,
+    "nombre":"",
+    "edad":"",
+    "proyecto":"",
+    "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8GDrMMZ3vCvSZHCYRrj9AvIOIN5rZIXDyKA&s"
+  },
+  {
+    "id": 6,
+    "nombre":"",
+    "edad":"",
+    "proyecto":"",
+    "foto": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8GDrMMZ3vCvSZHCYRrj9AvIOIN5rZIXDyKA&s"
+  }
+]
