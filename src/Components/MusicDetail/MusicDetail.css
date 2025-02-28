@@ -1,0 +1,31 @@
+.modal-content {
+  border: 2px solid #28a745;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.modal-body img {
+  transition: transform 0.3s ease;
+}
+
+.modal-body img:hover {
+  transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* MusicDetail.css */
+.modal-dialog-transparent .modal-content {
+  background-color: transparent; /* Fondo transparente */
+  
+}
+
+
+
