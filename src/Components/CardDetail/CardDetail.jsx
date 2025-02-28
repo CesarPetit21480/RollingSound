@@ -5,15 +5,35 @@ import {
   CardFooter,
   CardTitle,
   CardText,
+  Button,
 } from "react-bootstrap";
 import "./CardDetail.css";
 import { Context } from "../../Context/Context";
 import { useContext, useState } from "react";
+import MusicDetail from "../MusicDetail/MusicDetail";
 
-const CardDetail = ({ musica }) => {
+
+
+const CardDetail = ({musica}) => {
   const { setTracks } = useContext(Context);
   const [currentTrack, setCurrentTrack] = useState(null);
   const [disabledTrack, setDisabledTrack] = useState(null);
+  //estados para majetar las aparcion del modal con la info del grupo
+  const [showModal, setshowModal] = useState(false);
+  const [musicaSeleccionada, setMusicaSeleccionada] = useState(null);
+
+  const handleShowModal = () => {
+    setshowModal(true);
+  };
+  const MusicaSelecionada = (item) => {
+    console.log('Elemento seleccionado:', item); 
+    console.log(item);
+    setMusicaSeleccionada(item);
+  };
+  const clouse=()=>{
+
+    setshowModal(false)
+  }
 
   const handleClick = (item) => {
     setTracks(item.id);
@@ -83,7 +103,27 @@ const CardDetail = ({ musica }) => {
                 </div>
               </CardBody>
               <CardFooter className="d-flex justify-content-center align-items-center "></CardFooter>
-              <CardTitle className="text-success">{item.categoria}</CardTitle>
+              <CardTitle className="text-success d-flex justify-content-between align-items-center gap-8  ">
+                {item.categoria}
+                <Button
+                  variant="success"
+                  className="perfil-button"
+                  onClick={() => {
+                    handleShowModal();
+                    MusicaSelecionada(item);
+                    console.log(item)
+                  }}
+                >
+                  perfil
+                </Button>
+                {showModal && musicaSeleccionada && (
+                  <MusicDetail
+                    musica={musicaSeleccionada}
+                    onClose={()=>setshowModal(false)}
+                    
+                  />
+                )}
+              </CardTitle>
             </Card>
           </div>
         ))}
