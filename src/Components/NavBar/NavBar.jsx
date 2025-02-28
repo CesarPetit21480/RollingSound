@@ -1,13 +1,17 @@
 import { useState } from "react";
 import { Container, Nav, Navbar, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import LoginModal from "../LoginModal/LoginModal";
 import { FaUserAlt } from "react-icons/fa";
 import "./NavBar.css";
+import LoginRegisterModal from "../LoginRegisterModal/LoginRegisterModal";
+
+
 
 const NavBar = () => {
-  const [showLogin, setShowLogin] = useState(false);
+  /* const [showLogin, setShowLogin] = useState(false);
+  const [showRegister, setShowRegister] = useState(false); */
   const [isCollapsed, setIsCollapsed] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   return (
     <>
       <Navbar
@@ -51,14 +55,26 @@ const NavBar = () => {
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
+          
+          {/* <Button onClick={() => setShowLogin(true)}>
+            <FaUserAlt size={25} />
+          </Button>
 
-          <Button onClick={() => setShowLogin(true)}>
+          <Button onClick={() => setShowRegister(true)}>
+            <FaUserAlt size={25} />
+          </Button>
+           */}
+
+<Button onClick={() => setShowModal(true)}>
             <FaUserAlt size={25} />
           </Button>
         </Container>
       </Navbar>
 
-      <LoginModal show={showLogin} handleClose={() => setShowLogin(false)} />
+      {/* <LoginModal show={showLogin} handleClose={() => setShowLogin(false)} />
+      <RegisterModal show={showRegister} handleClose={() => setShowRegister(false)}/> */}
+
+<LoginRegisterModal show={showModal} handleClose={() => setShowModal(false)} />
     </>
   );
 };

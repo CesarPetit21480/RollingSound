@@ -1,6 +1,7 @@
 import data from "../../data/musica.json";
 import { CardDetail } from "../../Components";
 
+
 const Home = () => {
   const info = Array.isArray(data) ? data : data.musica;
   return (
