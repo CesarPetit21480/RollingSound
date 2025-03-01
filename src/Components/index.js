@@ -4,5 +4,6 @@ export { default as ProtectedRoute } from "./ProtectedRoute/ProtectedRoute";
 export { default as LoginModal } from "./LoginModal/LoginModal";
 export { default as CardDetail } from "./CardDetail/CardDetail";
 export { default as MusicPlayer } from "./MusicPlayer/MusicPlayer";
-export { default as MusicDetail } from "./MusicDetail/MusicDetail";
+export { default as MusicDetail } from './MusicDetail/MusicDetail'
+export { default as Buscador } from './Buscador/Buscador'
 export { default as DevAbout } from "./DevAbout/DevAbout";
