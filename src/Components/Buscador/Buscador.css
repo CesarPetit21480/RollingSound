@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+
+.form-buscador{
+    padding: 5px;
+    text-align: center;  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    align-items: center;
+}
+
+.form-buscador label{
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+    color: white;
+}
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.buscador {
+    padding: 10px 15px;
+    border: none; 
+    font-family: 'Poppins', sans-serif, 'Arial Narrow', Arial, sans-serif;
+    font-size: 25px;
+    text-align: center;
+    caret-color: blue;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 20%;
+    height: 50px; 
+}
+
+.buscador:focus-visible {
+    outline: none;
+}
+
+.input-container button {
+    background-color: #535151;
+    color: white;
+    border: none;  
+    font-size: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    height: 50px; 
+    padding: 0 20px; 
+    transition: all .5s ease-in-out;
+}
+
+.input-container button:hover {
+    background-color: #288ada;
+}
+
+/* MediaQuery para pantallas medianas */
+@media (max-width: 768px) {
+    .buscador {
+        width: 50%;
+    }
+}
+
+/* MediaQuery para pantallas pequeñas */
+@media (max-width: 480px) {
+    .buscador {
+        width: 70%;
+    }
+}
