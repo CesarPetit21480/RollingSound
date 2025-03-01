@@ -5,37 +5,36 @@ import { MusicFooter, MusicPlayer, NavBar, ProtectedRoute } from "./Components";
 import "./App.css";
 import ContextProvider from "./Context/ContextProvider";
 
-
 function App() {
   return (
     <>
       <ContextProvider>
         <Router>
-          <NavBar />
-          <Routes>
-            {/* Publicas */}
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/top10" element={<Top10 />} />
-            {/* <Route path="/login" element={<Login />} /> */}
-            <Route path="*" element={<NotFoundPage />} />
+          <div className="content">
+            <NavBar />
+            <Routes>
+              {/* Publicas */}
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/top10" element={<Top10 />} />
+              <Route path="*" element={<NotFoundPage />} />
 
-            {/* Privadas */}
-            <Route
-              path="/administration"
-              element={
-                <ProtectedRoute>
-                  <Administration />
-             
-                </ProtectedRoute>
-              }
-            />
-          </Routes>
+              {/* Privadas */}
+              <Route
+                path="/administration"
+                element={
+                  <ProtectedRoute>
+                    <Administration />
+                  </ProtectedRoute>
+                }
+              />
+            </Routes>
+            <div className="player">
+              <MusicPlayer />
+            </div>
+          </div>
         </Router>
-        <div className="player">
-          <MusicPlayer />
-        </div>
-        <MusicFooter />
+        <MusicFooter className="music-footer" />
       </ContextProvider>
     </>
   );
