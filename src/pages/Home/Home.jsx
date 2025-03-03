@@ -1,17 +1,22 @@
-import data from "../../data/musica.json";
-import { CardDetail } from "../../Components";
+
+import { Buscador, CardDetail } from "../../Components";
+import { userSearchMusic } from "../../hooks/userSearchMusic";
 
 
 const Home = () => {
-  const info = Array.isArray(data) ? data : data.musica;
+  const { valorMusic, onChangeInput, handleOnSubmit, music } =
+    userSearchMusic();
   return (
     <>
- <div className="my-5">
-      <CardDetail musica={info} />
-    </div>
-
+      <div className="my-5">
+        <Buscador
+          valorInput={valorMusic}
+          onChangeInput={onChangeInput}
+          handleOnSubmit={handleOnSubmit}
+        />
+        <CardDetail musica={music} />
+      </div>
     </>
-   
   );
 };
 
