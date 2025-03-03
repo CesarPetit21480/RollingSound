@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { Modal, Form, Button, Alert } from "react-bootstrap";
 
 const LoginRegisterModal = ({ show, handleClose }) => {
-  const [isLogin, setIsLogin] = useState(true); // Estado para alternar entre Login y Register
+  const [isLogin, setIsLogin] = useState(true); 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState(""); // Solo para Register
-  const [username, setUsername] = useState(""); // Nuevo campo para el nombre de usuario (solo en Registro)
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [username, setUsername] = useState("");
   const [error, setError] = useState("");
-  const [isSuccess, setIsSuccess] = useState(false); // Estado para mostrar la ventana de bienvenida
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const handleCloseModal = () => {
     setError("");
@@ -16,7 +16,7 @@ const LoginRegisterModal = ({ show, handleClose }) => {
     setPassword("");
     setConfirmPassword("");
     setUsername("");
-    setIsSuccess(false); // Reiniciar el estado de éxito
+    setIsSuccess(false);
     handleClose();
   };
 
@@ -24,26 +24,25 @@ const LoginRegisterModal = ({ show, handleClose }) => {
     e.preventDefault();
     setError("");
 
-    // 1. Validación de Email con regex
+
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     if (!email || !emailRegex.test(email)) {
       setError("Por favor, ingresa un correo electrónico válido.");
       return;
     }
 
-    // 2. Validación de la contraseña
     if (!password || password.length < 6) {
       setError("La contraseña debe tener al menos 6 caracteres.");
       return;
     }
 
-    // 3. Validación de la confirmación de la contraseña (solo para registro)
+   
     if (!isLogin && password !== confirmPassword) {
       setError("Las contraseñas no coinciden.");
       return;
     }
 
-    // 4. Validación de nombre de usuario (solo para registro)
+
     if (!isLogin && !username) {
       setError("Por favor, ingresa un nombre de usuario.");
       return;
@@ -51,18 +50,18 @@ const LoginRegisterModal = ({ show, handleClose }) => {
 
     const userData = { email, password, username };
     if (!isLogin) {
-      userData.confirmPassword = confirmPassword; // Agregar confirmación de contraseña en registro
+      userData.confirmPassword = confirmPassword; 
     }
 
     try {
       const response = await fetch(
-        isLogin ? "https://jsonplaceholder.typicode.com/posts" : "https://jsonplaceholder.typicode.com/posts", // Cambiado por la URL de prueba
+        isLogin ? "https://jsonplaceholder.typicode.com/posts" : "https://jsonplaceholder.typicode.com/posts", 
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(userData), // 🔥 Convertimos los datos a JSON
+          body: JSON.stringify(userData), 
         }
       );
 
@@ -72,7 +71,7 @@ const LoginRegisterModal = ({ show, handleClose }) => {
         throw new Error(data.message || "Error en la autenticación");
       }
 
-      setIsSuccess(true); // Si la solicitud es exitosa, mostrar la ventana de bienvenida
+      setIsSuccess(true); 
     } catch (error) {
       setError(error.message);
     }
@@ -104,7 +103,7 @@ const LoginRegisterModal = ({ show, handleClose }) => {
                     placeholder="Ingresa tu nombre de usuario"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    required // Validación HTML para campo requerido
+                    required 
                   />
                 </Form.Group>
 
@@ -115,7 +114,7 @@ const LoginRegisterModal = ({ show, handleClose }) => {
                 placeholder="Ingresa tu correo"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                required // Validación HTML para campo requerido
+                required 
               />
             </Form.Group>
 
@@ -126,12 +125,12 @@ const LoginRegisterModal = ({ show, handleClose }) => {
                 placeholder="Ingresa tu contraseña"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                required // Validación HTML para campo requerido
-                minLength={6} // Contraseña debe tener al menos 6 caracteres
+                required 
+                minLength={6} 
               />
             </Form.Group>
 
-            {/* Campo adicional para confirmación de contraseña en Registro */}
+  
             {!isLogin && (
               <>
 
@@ -142,8 +141,8 @@ const LoginRegisterModal = ({ show, handleClose }) => {
                     placeholder="Repite tu contraseña"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    required // Validación HTML para campo requerido
-                    minLength={6} // Confirmación debe tener al menos 6 caracteres
+                    required 
+                    minLength={6} 
                   />
                 </Form.Group>
               </>
@@ -155,7 +154,7 @@ const LoginRegisterModal = ({ show, handleClose }) => {
           </Form>
         )}
 
-        {/* Botón para cambiar entre Login y Registro */}
+    
         {!isSuccess && (
           <Button
             variant="link"
