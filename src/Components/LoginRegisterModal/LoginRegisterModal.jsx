@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Modal, Form, Button, Alert } from "react-bootstrap";
+import usuarios from "../../data/usuario.json";
 
 const LoginRegisterModal = ({ show, handleClose }) => {
-  const [isLogin, setIsLogin] = useState(true); 
+  const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [username, setUsername] = useState("");
   const [error, setError] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
+
+  const usuariosJson = Array.isArray(usuarios) ? usuarios : "";
 
   const handleCloseModal = () => {
     setError("");
@@ -36,7 +39,7 @@ const LoginRegisterModal = ({ show, handleClose }) => {
       return;
     }
 
-   
+
     if (!isLogin && password !== confirmPassword) {
       setError("Las contraseñas no coinciden.");
       return;
@@ -50,18 +53,18 @@ const LoginRegisterModal = ({ show, handleClose }) => {
 
     const userData = { email, password, username };
     if (!isLogin) {
-      userData.confirmPassword = confirmPassword; 
+      userData.confirmPassword = confirmPassword;
     }
 
     try {
       const response = await fetch(
-        isLogin ? "https://jsonplaceholder.typicode.com/posts" : "https://jsonplaceholder.typicode.com/posts", 
+        isLogin ? "https://jsonplaceholder.typicode.com/posts" : "https://jsonplaceholder.typicode.com/posts",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(userData), 
+          body: JSON.stringify(userData),
         }
       );
 
@@ -71,7 +74,7 @@ const LoginRegisterModal = ({ show, handleClose }) => {
         throw new Error(data.message || "Error en la autenticación");
       }
 
-      setIsSuccess(true); 
+      setIsSuccess(true);
     } catch (error) {
       setError(error.message);
     }
@@ -96,16 +99,16 @@ const LoginRegisterModal = ({ show, handleClose }) => {
         ) : (
           <Form onSubmit={handleSubmit}>
 
-              <Form.Group controlId="formUsername" className="mt-3">
-                  <Form.Label>Nombre de Usuario</Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder="Ingresa tu nombre de usuario"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    required 
-                  />
-                </Form.Group>
+            <Form.Group controlId="formUsername" className="mt-3">
+              <Form.Label>Nombre de Usuario</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Ingresa tu nombre de usuario"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+            </Form.Group>
 
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Email</Form.Label>
@@ -114,7 +117,7 @@ const LoginRegisterModal = ({ show, handleClose }) => {
                 placeholder="Ingresa tu correo"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                required 
+                required
               />
             </Form.Group>
 
@@ -125,12 +128,12 @@ const LoginRegisterModal = ({ show, handleClose }) => {
                 placeholder="Ingresa tu contraseña"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                required 
-                minLength={6} 
+                required
+                minLength={6}
               />
             </Form.Group>
 
-  
+
             {!isLogin && (
               <>
 
@@ -141,8 +144,8 @@ const LoginRegisterModal = ({ show, handleClose }) => {
                     placeholder="Repite tu contraseña"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    required 
-                    minLength={6} 
+                    required
+                    minLength={6}
                   />
                 </Form.Group>
               </>
@@ -154,7 +157,7 @@ const LoginRegisterModal = ({ show, handleClose }) => {
           </Form>
         )}
 
-    
+
         {!isSuccess && (
           <Button
             variant="link"

@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { FaUserAlt } from "react-icons/fa";
 import "./NavBar.css";
 import LoginRegisterModal from "../LoginRegisterModal/LoginRegisterModal";
+import { useNavigate } from "react-router";
+
 
 
 
@@ -12,6 +14,7 @@ const NavBar = () => {
   const [showRegister, setShowRegister] = useState(false); */
   const [isCollapsed, setIsCollapsed] = useState(true);
   const [showModal, setShowModal] = useState(false);
+  let navigate = useNavigate();
   return (
     <>
       <Navbar
@@ -21,10 +24,12 @@ const NavBar = () => {
         className="fixed-top bg-body-tertiary shadow"
       >
         <Container fluid>
-          <Navbar.Brand>
-            <Link to="/" className="navbar-brand text-success fw-semibold">
-              Rooling Sound
-            </Link>
+          <Navbar.Brand
+            className="navbar-brand text-success fw-semibold"
+            onClick={() => navigate("/")}
+            style={{ cursor: "pointer" }}
+          >
+            Rooling Sound
           </Navbar.Brand>
           <Navbar.Toggle
             aria-controls="basic-navbar-nav"
@@ -37,44 +42,47 @@ const NavBar = () => {
               alt="logo"
             />
             <Nav className="ms-auto w-100 d-flex justify-content-start">
-              <Nav.Link as={Link} to="/" className="active text-uppercase">
+              <Nav.Link
+                onClick={() => navigate("/")}
+                className="active text-uppercase"
+                style={{ cursor: "pointer" }}
+              >
                 Home
               </Nav.Link>
-              <Nav.Link as={Link} to="/about" className="active text-uppercase">
+
+              <Nav.Link
+                onClick={() => navigate("/about")}
+                className="active text-uppercase"
+                style={{ cursor: "pointer" }}
+              >
                 About
               </Nav.Link>
-              <Nav.Link as={Link} to="/top10" className="active text-uppercase">
-                Top10
-              </Nav.Link>
+
               <Nav.Link
-                as={Link}
-                to="/administration"
+                onClick={() => navigate("/top10")}
                 className="active text-uppercase"
+                style={{ cursor: "pointer" }}
+              >
+                About
+              </Nav.Link>
+
+              <Nav.Link
+                onClick={() => navigate("/administration")}
+                className="active text-uppercase"
+                style={{ cursor: "pointer" }}
               >
                 Administration
               </Nav.Link>
+
             </Nav>
           </Navbar.Collapse>
-          
-          {/* <Button onClick={() => setShowLogin(true)}>
-            <FaUserAlt size={25} />
-          </Button>
 
-          <Button onClick={() => setShowRegister(true)}>
-            <FaUserAlt size={25} />
-          </Button>
-           */}
-
-<Button onClick={() => setShowModal(true)}>
+          <Button onClick={() => setShowModal(true)}>
             <FaUserAlt size={25} />
           </Button>
         </Container>
       </Navbar>
-
-      {/* <LoginModal show={showLogin} handleClose={() => setShowLogin(false)} />
-      <RegisterModal show={showRegister} handleClose={() => setShowRegister(false)}/> */}
-
-<LoginRegisterModal show={showModal} handleClose={() => setShowModal(false)} />
+      <LoginRegisterModal show={showModal} handleClose={() => setShowModal(false)} />
     </>
   );
 };

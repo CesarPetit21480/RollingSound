@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "username": "cpetit",
+        "email": "cpetit@hotmail.com",
+        "nombre": "Cesar Petit",
+        "password": "12345"
+    },
+    {
+        "id": 2,
+        "username": "emarquez",
+        "email": "eduardoMarquez@hotmail.com",
+        "nombre": "Eduardo Marquez",
+        "password": "12345"
+    },
+    {
+        "id": 3,
+        "username": "elci",
+        "email": "elci@hotmail.com",
+        "nombre": "ELcira",
+        "password": "12345"
+    },
+    {
+        "id": 4,
+        "username": "rzingaretti",
+        "email": "rocio@hotmail.com",
+        "nombre": "Rocio Zingaretti",
+        "password": "12345"
+    },
+    {
+        "id": 5,
+        "username": "mchavez",
+        "email": "mario@hotmail.com",
+        "nombre": "Mario Chavez",
+        "password": "12345"
+    },
+    {
+        "id": 6,
+        "username": "jpavon",
+        "email": "jpavon@hotmail.com",
+        "nombre": "Joaquin Pavon",
+        "password": "12345"
+    }
+]
