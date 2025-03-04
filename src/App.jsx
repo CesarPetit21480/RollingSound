@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { MusicFooter, MusicPlayer, NavBar, ProtectedRoute } from "./Components";
 import "./App.css";
 import ContextProvider from "./Context/ContextProvider";
+import React, { useState } from "react";
 
 function App() {
   return (
