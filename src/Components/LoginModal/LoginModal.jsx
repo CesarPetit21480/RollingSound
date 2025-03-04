@@ -55,6 +55,13 @@ const LoginModal = ({ show, handleClose }) => {
           <Button type="submit" className="w-100 mt-3 bg-primary p-2">
             Iniciar Sesión
           </Button>
+          <Button
+                      variant="link"
+                      className="w-100 mt-3"
+                      onClick={() => setIsLogin(!isLogin)}
+                    >
+                      {isLogin ? "¿No tienes cuenta? Regístrate" : "¿Ya tienes cuenta? Inicia sesión"}
+          </Button>
         </Form>
       </Modal.Body>
     </Modal>
