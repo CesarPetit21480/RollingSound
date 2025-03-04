@@ -16,9 +16,23 @@ export const userSearchMusic = () => {
     localStorage.setItem("musicData", JSON.stringify(music));
   }, [music]);
 
+  // const onChangeInput = (e) => {
+  //   const valor = e.target.value;
+  //   setvalorMusic(valor);
+  // };
+
   const onChangeInput = (e) => {
     const valor = e.target.value;
     setvalorMusic(valor);
+  
+    // Filtra en tiempo real
+    const musicSearch = musicArray.filter(
+      (m) =>
+        m.titulo.toLowerCase().includes(valor.toLowerCase()) ||
+        m.cantante.toLowerCase().includes(valor.toLowerCase())
+    );
+  
+    setMusic(musicSearch);
   };
 
   const getMusic = async (filter) => {
@@ -57,16 +71,9 @@ export const userSearchMusic = () => {
     });
   };
 
-  const handleOnSubmit = async (e) => {
-    e.preventDefault();
-    const musicSearch = await getMusic(valorMusic);
-    setMusic(musicSearch);
-  };
-
   return {
     valorMusic,
     onChangeInput,
-    handleOnSubmit,
     music,
     actualizarObjeto,
   };

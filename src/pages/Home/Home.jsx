@@ -4,7 +4,7 @@ import { userSearchMusic } from "../../hooks/userSearchMusic";
 
 
 const Home = () => {
-  const { valorMusic, onChangeInput, handleOnSubmit, music } =
+  const { valorMusic, onChangeInput, music } =
     userSearchMusic();
   return (
     <>
@@ -12,8 +12,9 @@ const Home = () => {
         <Buscador
           valorInput={valorMusic}
           onChangeInput={onChangeInput}
-          handleOnSubmit={handleOnSubmit}
+
         />
+      
         <CardDetail musica={music} />
       </div>
     </>
