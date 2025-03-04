@@ -1,0 +1,53 @@
+.whit{
+    color: white;
+    backdrop-filter: blur(1.5px);
+}
+/* contenedor de tarjetas invertidas: establece el ancho y el alto como quieras.Propiedad de borde para demostrar que el giro en sí sale del cuadro al pasar el mouse */
+.flip-card {
+  background-color: transparent;
+  
+  height: 250px;
+  perspective: 1000px; /* Efecto 3D */
+  margin-bottom: 40px;
+}
+
+/* contenedor para colocar la parte delantera y trasera*/
+.flip-card-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Giro horizontal cuando se mueve el mouse sobre el contenedor de la imagen */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Posicion de la parte trasera y delantera */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Estilo de frente a la imagen */
+.flip-card-front {
+  color: black;
+}
+
+/* Estilo detras de la imagen */
+.flip-card-back {
+  
+  backdrop-filter: blur(10px);
+  color: white;
+  transform: rotateY(180deg);
+}
+.row{
+  display: flex;
+
+}
