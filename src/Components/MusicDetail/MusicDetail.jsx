@@ -1,14 +1,30 @@
 import { Modal, Button } from "react-bootstrap";
 import "./MusicDetail.css";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+import { useState } from "react";
 
 function MusicDetail({ musica, onClose, isCollapsed }) {
   console.log("Datos de musica:", musica);
   if (!musica) return null;
+  const [index, setIndex] = useState(0);
+  const nextSlide = () => {
+  setIndex((prev) => {
+    const newIndex = (prev + 1) % musica.imagenesCarrusel.length;
+    console.log('Índice después de siguiente:', newIndex); // Muestra el nuevo índice
+    return newIndex;
+  });
+};
+
+const prevSlide = () => {
+  setIndex((prev) => {
+    const newIndex = (prev - 1 + musica.imagenesCarrusel.length) % musica.imagenesCarrusel.length;
+    console.log('Índice después de anterior:', newIndex); // Muestra el nuevo índice
+    return newIndex;
+  });
+};
+
+  
+  
+  
 
   return (
     <Modal
@@ -36,33 +52,81 @@ function MusicDetail({ musica, onClose, isCollapsed }) {
       </Modal.Header>
       <Modal.Body className="bg-dark text-success">
         <div className="d-flex flex-column flex-md-row gap-3">
-          <Swiper
-            modules={[Navigation, Pagination]}
-            navigation
-            pagination={{ clickable: true }}
-            spaceBetween={10}
-            slidesPerView={1}
-            className="mb-3"
-            style={{ flex: 1 }}
-            onSlideChange={(swiper) => console.log('Slide index changed to: ', swiper.activeIndex)}
-            effect="fade"
-            
+          <div
+            className="carrousel"
+            style={{ flex: 1, overflow: "hidden", position: "relative" }}
           >
-            {musica.imagenesCarrusel.map((img,index) => {
-              console.log(musica.imagenesCarrusel);
-              return(            
-              <SwiperSlide key={index}>
-                <img
-                  src={img.trim()}
-                  alt={`imagen ${index}`}
-                  className="ruonded img-fluid"
-                  style={{ width: "100%", height: "180px", objectFit: "cover" }}
-                />
-              </SwiperSlide>)
-            })}
-          </Swiper>
+            <div
+              className="carrousel-inner"
+              style={{
+                transform: `translateX(-${index * 100}%)`,
+                display: "flex",
+                transition: "transform 0.5s ease-in-out",
+              }}
+            >
+              { musica.imagenesCarrusel && musica.imagenesCarrusel.length >0?( musica.imagenesCarrusel.map((img,index) => (
+                
+                <div
+                  key={index}
+                  className="carrousel-item"
+                  style={{ flex: "0 0 100%" }}
+                >
+                  <img
+                
+                    src={`${img}?t=${new Date().getTime()}`} 
+                    alt={img}
+                    className="carrousel-item rounded img-fluid"
+                    style={{
+                      width: "100%",
+                      height: "200px",
+                      objectFit: "cover",
+                      aspectRatio:"16/9"
+                    }}
+                  />
+                </div>
+              ))):(
 
-          <div style={{flex:1}}>
+                <div>
+    <img
+      src={musica.linkImagen}
+      alt={musica.titulo}
+      className="rounded img-fluid"
+      style={{ width: "100%", height: "180px", objectFit: "cover" }}
+    />
+  </div>
+              
+            )}
+            </div>
+            <button
+              onClick={prevSlide}
+              className="carousel-button prev text-bg-success text-dark fw-bold"
+              style={{
+                position: "absolute",
+                top: "50%",
+                left: "10px",
+                transform: "translateY(-50%)",
+                zIndex: 1,
+
+              }}
+            >
+              &lt;
+            </button>
+            <button
+              onClick={nextSlide}
+              className="carousel-button next text-bg-success text-dark fw-bold"
+              style={{
+                position: "absolute",
+                top: "50%",
+                right: "10px",
+                transform: "translateY(-50%)",
+                zIndex: 1,
+              }}
+            >
+              &gt;
+            </button>
+          </div>
+
+          <div style={{ flex: 1 }}>
             <p>
               Cantante: <strong>{musica.cantante}</strong>
             </p>
@@ -92,3 +156,30 @@ function MusicDetail({ musica, onClose, isCollapsed }) {
 }
 
 export default MusicDetail;
+
+  /* <Swiper
+            modules={[Navigation, Pagination]}
+            navigation
+            pagination={{ clickable: true }}
+            spaceBetween={10}
+            slidesPerView={1}
+            className="mb-3"
+            style={{ flex: 1 }}
+            onSlideChange={(swiper) => console.log('Slide index changed to: ', swiper.activeIndex)}
+            effect="fade"
+            
+          >
+            {musica.imagenesCarrusel.map((img,index) => {
+              console.log(musica.imagenesCarrusel);
+              return(            
+              <SwiperSlide key={index}>
+                <img
+                  src={img.trim()}
+                  alt={`imagen ${index}`}
+                  className="ruonded img-fluid"
+                  style={{ width: "100%", height: "180px", objectFit: "cover" }}
+                />
+              </SwiperSlide>)
+            })}
+          </Swiper>*/
+
