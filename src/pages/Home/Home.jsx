@@ -12,7 +12,6 @@ const Home = () => {
         <Buscador
           valorInput={valorMusic}
           onChangeInput={onChangeInput}
-
         />
       
         <CardDetail musica={music} />

@@ -1,6 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Modal, Form, Button, Alert } from "react-bootstrap";
 import usuarios from "../../data/usuarios.json";
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import { Context } from "../../Context/Context";
+
+
+
 
 const LoginRegisterModal = ({ show, handleClose }) => {
   const [isLogin, setIsLogin] = useState(true);
@@ -10,6 +15,7 @@ const LoginRegisterModal = ({ show, handleClose }) => {
   const [username, setUsername] = useState("");
   const [error, setError] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
+  const { setUser } = useContext(Context);
 
   const usuariosJson = Array.isArray(usuarios) ? usuarios : "";
 
@@ -24,6 +30,7 @@ const LoginRegisterModal = ({ show, handleClose }) => {
   };
 
   const handleSubmit = async (e) => {
+
     e.preventDefault();
     setError("");
 
@@ -45,7 +52,6 @@ const LoginRegisterModal = ({ show, handleClose }) => {
       return;
     }
 
-
     if (!isLogin && !username) {
       setError("Por favor, ingresa un nombre de usuario.");
       return;
@@ -57,24 +63,39 @@ const LoginRegisterModal = ({ show, handleClose }) => {
     }
 
     try {
-      const response = await fetch(
-        isLogin ? "https://jsonplaceholder.typicode.com/posts" : "https://jsonplaceholder.typicode.com/posts",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(userData),
+
+      const usuario = usuariosJson.find(us => us.username === userData.username)
+
+      if (usuario) {
+        const foto = usuario.foto
+        const user = usuario.username.toUpperCase();
+
+        if (usuario.password === userData.password) {
+          setUser(usuario)
+          Swal.fire({
+            title: "<h1 style='color: #007bff; font-weight: bold;'>BIENVENIDO</h1>",
+            html: `<h2 style="font-size: 40px; font-weight: 500; color: #333;">${user}</h2>`,
+            imageUrl: foto,
+            imageWidth: 150,
+            imageHeight: 150,
+            imageAlt: "Custom image"
+          });
         }
-      );
+        else {
+          Swal.fire({
+            title: 'Error!',
+            text: 'Password incorrect',
+            icon: 'error',
+            confirmButtonText: 'Cerrar'
+          })
+        }
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || "Error en la autenticación");
       }
 
-      setIsSuccess(true);
+
+
+
+
     } catch (error) {
       setError(error.message);
     }

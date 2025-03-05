@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Container, Nav, Navbar, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+
 import { FaUserAlt } from "react-icons/fa";
 import "./NavBar.css";
 import LoginRegisterModal from "../LoginRegisterModal/LoginRegisterModal";
 import { useNavigate } from "react-router";
+import { Context } from "../../Context/Context";
+
 
 
 
@@ -15,6 +17,7 @@ const NavBar = () => {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const [showModal, setShowModal] = useState(false);
   let navigate = useNavigate();
+  const { user } = useContext(Context);
   return (
     <>
       <Navbar
@@ -63,7 +66,7 @@ const NavBar = () => {
                 className="active text-uppercase"
                 style={{ cursor: "pointer" }}
               >
-                About
+                Top10
               </Nav.Link>
 
               <Nav.Link
@@ -76,12 +79,18 @@ const NavBar = () => {
 
             </Nav>
           </Navbar.Collapse>
+          {user && (
+            <Navbar.Text className="text-white mx-3">
+              {user.username.toUpperCase()}
+            </Navbar.Text>
+          )}
 
-          <Button onClick={() => setShowModal(true)}>
+
+          <Button Button onClick={() => setShowModal(true)}>
             <FaUserAlt size={25} />
           </Button>
         </Container>
-      </Navbar>
+      </Navbar >
       <LoginRegisterModal show={showModal} handleClose={() => setShowModal(false)} />
     </>
   );

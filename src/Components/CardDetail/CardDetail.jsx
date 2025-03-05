@@ -34,7 +34,7 @@ const CardDetail = ({ musica }) => {
 
   return (
     <div className="container text-center">
-      <h2 className="text-center text-bg-primary mb-5 text-uppercase fw-bold fs-1 mt-5">
+      <h2 className="text-center text-bg-primary mb-5 text-uppercase fw-bold fs-1 mt-5 rounded px-3 py-2">
         Rolling Sound Tracks
       </h2>
 
@@ -65,15 +65,20 @@ const CardDetail = ({ musica }) => {
                 }}
               >
                 <CardBody>
-                  <CardText className="text-success">{item.titulo}</CardText>
+                  <CardText className="text-success">{item.cantante}
+                    {currentTrack === item.id && (
+                      <div>Está Sonando: {item.titulo}</div>
+                    )}
+                  </CardText>
                   <div className="d-flex align-items-center">
                     <img
                       src={item.linkImagen}
                       alt={item.titulo}
-                      className="mx-3 shadow img-fluid"
+                      className="mx-5 shadow img-fluid"
                       style={{
                         maxWidth: "80px",
                         height: "80px",
+                        width: "80px",
                         objectFit: "cover",
                       }}
                     />
@@ -105,32 +110,32 @@ const CardDetail = ({ musica }) => {
                           marginLeft: "30px",
                         }}
                       />
-                      {currentTrack === item.id && (
-                        <div>Está Sonando: {item.titulo}</div>
-                      )}
+
                     </div>
                   </div>
                 </CardBody>
-                <CardFooter className="d-flex justify-content-center align-items-center"></CardFooter>
-                <CardTitle className="text-success d-flex justify-content-center align-items-center gap-3">
-                  {item.categoria}
-                  <Button
-                    variant="success"
-                    className="perfil-button"
-                    onClick={() => {
-                      handleShowModal();
-                      MusicaSelecionada(item);
-                    }}
-                  >
-                    Perfil
-                  </Button>
-                  {showModal && musicaSeleccionada && (
-                    <MusicDetail
-                      musica={musicaSeleccionada}
-                      onClose={() => setshowModal(false)}
-                    />
-                  )}
-                </CardTitle>
+                <CardFooter className="d-flex justify-content-center align-items-center">
+                  <CardTitle className="text-success d-flex justify-content-center align-items-center gap-3">
+                    {item.categoria}
+                    <Button
+                      variant="success"
+                      className="perfil-button"
+                      onClick={() => {
+                        handleShowModal();
+                        MusicaSelecionada(item);
+                      }}
+                    >
+                      Perfil
+                    </Button>
+                    {showModal && musicaSeleccionada && (
+                      <MusicDetail
+                        musica={musicaSeleccionada}
+                        onClose={() => setshowModal(false)}
+                      />
+                    )}
+                  </CardTitle>
+                </CardFooter>
+
               </Card>
             </div>
           ))}
