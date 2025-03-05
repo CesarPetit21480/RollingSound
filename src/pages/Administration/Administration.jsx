@@ -3,7 +3,7 @@ import { userSearchMusic } from "../../hooks/userSearchMusic";
 import { Button, Container, Row, Col, Card, Modal, Form } from "react-bootstrap";
 
 const Administration = () => {
-  const { music, actualizarObjeto } = userSearchMusic();
+  const { music, actualizarObjeto, eliminarCancion } = userSearchMusic();
   const [show, setShow] = useState(false);
   const [editingSong, setEditingSong] = useState(null);
   const [formData, setFormData] = useState({
@@ -12,33 +12,27 @@ const Administration = () => {
     linkImagen: "",
   });
 
-
   const handleEdit = (song) => {
     setEditingSong(song.id);
     setFormData(song);
-    actualizarObjeto(song.id,formData);
     setShow(true);
   };
-
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setEditingSong(null);
     actualizarObjeto(editingSong, formData);
     setShow(false);
-
     setFormData({ titulo: "", cantante: "", linkImagen: "" });
   };
 
-
   const handleDelete = (id) => {
     if (!id) return;
-    actualizarObjeto(id, null);
+    eliminarCancion(id);
   };
 
   return (
@@ -79,7 +73,6 @@ const Administration = () => {
         )}
       </Row>
 
-
       <Modal show={show} onHide={() => setShow(false)} centered>
         <Modal.Header closeButton>
           <Modal.Title>{editingSong ? "Editar Canción" : "Agregar Canción"}</Modal.Title>
@@ -96,7 +89,6 @@ const Administration = () => {
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Imagen (URL)</Form.Label>
-          
               <Form.Control type="text" name="linkImagen" value={formData.linkImagen} onChange={handleChange} required />
             </Form.Group>
             <div className="text-center">

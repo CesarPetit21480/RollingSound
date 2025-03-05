@@ -40,8 +40,6 @@ export const userSearchMusic = () => {
   const actualizarObjeto = (idParaActualizar, elemento) => {
     setMusic((prevMusic) => {
       let nuevoArray;
-      console.log("Entre al hook",elemento,idParaActualizar);
-      
       if (!idParaActualizar) {
         const newId =
           prevMusic.length > 0
@@ -54,7 +52,15 @@ export const userSearchMusic = () => {
         );
       }
       localStorage.setItem("musicData", JSON.stringify(nuevoArray));
-      setMusic(nuevoArray);
+      return nuevoArray;
+    });
+  };
+
+  const eliminarCancion = (idParaEliminar) => {
+    setMusic((prevMusic) => {
+      const nuevoArray = prevMusic.filter((item) => item.id !== idParaEliminar);
+      localStorage.setItem("musicData", JSON.stringify(nuevoArray));
+      return nuevoArray;
     });
   };
 
@@ -70,5 +76,6 @@ export const userSearchMusic = () => {
     handleOnSubmit,
     music,
     actualizarObjeto,
+    eliminarCancion,
   };
 };
