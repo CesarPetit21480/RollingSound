@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "username": "cpetit",
+        "email": "cpetit@hotmail.com",
+        "nombre": "Cesar Petit",
+        "password": "$2b$10$/Ah4kxES0bqtdy2jfRKMPOuqv/v7/fDwZ2.iwpmainC3xYq7auNNC",
+        "foto": "/assets/About/cesar.png"
+    },
+    {
+        "id": 2,
+        "username": "emarquez",
+        "email": "eduardoMarquez@hotmail.com",
+        "nombre": "Eduardo Marquez",
+        "password": "$2b$10$/Ah4kxES0bqtdy2jfRKMPOuqv/v7/fDwZ2.iwpmainC3xYq7auNNC",
+        "foto": "/assets/About/eduardo.png"
+    },
+    {
+        "id": 3,
+        "username": "elci",
+        "email": "elci@hotmail.com",
+        "nombre": "ELcira",
+        "password": "$2b$10$/Ah4kxES0bqtdy2jfRKMPOuqv/v7/fDwZ2.iwpmainC3xYq7auNNC",
+        "foto": "/assets/About/elci.png"
+    },
+    {
+        "id": 4,
+        "username": "rzingaretti",
+        "email": "rocio@hotmail.com",
+        "nombre": "Rocio Zingaretti",
+        "password": "$2b$10$/Ah4kxES0bqtdy2jfRKMPOuqv/v7/fDwZ2.iwpmainC3xYq7auNNC",
+        "foto": "/assets/About/rocio.png"
+    },
+    {
+        "id": 5,
+        "username": "mchavez",
+        "email": "mario@hotmail.com",
+        "nombre": "Mario Chavez",
+        "password": "$2b$10$/Ah4kxES0bqtdy2jfRKMPOuqv/v7/fDwZ2.iwpmainC3xYq7auNNC",
+        "foto": "/assets/About/mario.png"
+    },
+    {
+        "id": 6,
+        "username": "jpavon",
+        "email": "jpavon@hotmail.com",
+        "nombre": "Joaquin Pavon",
+        "password": "$2b$10$/Ah4kxES0bqtdy2jfRKMPOuqv/v7/fDwZ2.iwpmainC3xYq7auNNC",
+        "foto": "/assets/About/joaquin.png"
+    }
+]
