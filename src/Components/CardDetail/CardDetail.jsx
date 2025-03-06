@@ -21,8 +21,8 @@ const CardDetail = ({ musica }) => {
   const handleShowModal = () => {
     setshowModal(true);
   };
-
-  const MusicaSelecionada = (item) => {
+   const MusicaSelecionada = (item) => {
+ 
     setMusicaSeleccionada(item);
   };
 

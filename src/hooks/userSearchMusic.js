@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import data from "../data/musica.json";
 
 export const userSearchMusic = () => {
-  const musicArray = Array.isArray(data) ? data : data.musica;
+  const musicArray = Array.isArray(data) ? data : [];  
 
   const getStoredMusic = () => {
     const storedMusic = localStorage.getItem("musicData");

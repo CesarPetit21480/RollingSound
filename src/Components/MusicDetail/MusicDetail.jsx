@@ -3,23 +3,25 @@ import "./MusicDetail.css";
 import { useEffect, useState } from "react";
 
 function MusicDetail({ musica, onClose, isCollapsed }) {
-  console.log("Datos de musica:", musica.imagenesCarrusel);
+
   if (!musica) return null;
   //
+  const cantidadImagenes = musica?.imagenesCarrusel?.length || 0;
+
   const [index, setIndex] = useState(0);
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => {
         //hace que el cuando llegue a 3 vuelva a cero ya que cuando llega  a 3 lo divide en el length que es 3 ,el resto es ceero y retona eso 
-        const newindex = (prev + 1) % musica.imagenesCarrusel.length;
+        const newindex = (prev + 1) % cantidadImagenes;
         return newindex;
       });
-    }, 1200);
+    }, 3000);
 
     //limpiaos e intervalo
     return () => clearInterval(interval);
-  }, [musica.imagenesCarrusel.length]);
- 
+  }, [cantidadImagenes]);
+
   return (
     <Modal
       show={true}
@@ -58,7 +60,7 @@ function MusicDetail({ musica, onClose, isCollapsed }) {
                 transition: "transform 0.5s ease-in-out",
               }}
             >
-              {/* en esta lline se donde se hace el mapeo  hace una comprobaacion si erray no tiene nada devuelve la imagen de portada si no devuelve el carrousel*/ }
+              {/* en esta lline se donde se hace el mapeo  hace una comprobaacion si erray no tiene nada devuelve la imagen de portada si no devuelve el carrousel*/}
               {musica.imagenesCarrusel && musica.imagenesCarrusel.length > 0 ? (
                 musica.imagenesCarrusel.map((img, index) => (
                   <div
