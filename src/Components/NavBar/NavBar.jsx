@@ -13,13 +13,14 @@ const NavBar = () => {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const [showModal, setShowModal] = useState(false);
   let navigate = useNavigate();
-  const { user, setUser, loguer } = useContext(Context);
+  const { user, setUser, loguer, setLoguer } = useContext(Context);
 
   let usuarioLogueado = loguer ? loguer : user ? user : undefined;
 
   const handleLogout = () => {
     setUser(null);
-    localStorage.removeItem("userLogueado");
+    setLoguer(null);
+    localStorage.removeItem("usuarioLogueado");
 
     navigate("/");
   };
