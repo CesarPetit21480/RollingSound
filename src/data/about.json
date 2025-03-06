@@ -4,41 +4,41 @@
     "nombre":"Elcira Gimenez",
     "edad":"36 años",
     "proyecto":"Scrum Master, Logo y Pág. Administración",
-    "foto": "/src/assets/About/elci.png"
+    "foto": "/assets/About/elci.png"
   },
   {
     "id": 2,
     "nombre":"Joaquín Pavón",
     "edad":"24 años",
     "proyecto":"Pág. Administración",
-    "foto": "/src/assets/About/joaquin.png"
+    "foto": "/assets/About/joaquin.png"
   },
   {
     "id": 3,
     "nombre":"Mario Chávez",
     "edad":"49 años",
     "proyecto":"Pág. Detalle",
-    "foto": "/src/assets/About/mario.png"
+    "foto": "/assets/About/mario.png"
   },
   {
     "id": 4,
     "nombre":"Eduardo Marquez",
     "edad":"29 años",
     "proyecto":"Pág. About",
-    "foto": "/src/assets/About/eduardo.png"
+    "foto": "/assets/About/eduardo.png"
   },
   {
     "id": 5,
     "nombre":"Cesar Petit",
     "edad":"44 años",
-    "proyecto":"Pág. Home,Login,Reproductor,Footer,Navbar",
-    "foto": "/src/assets/About/cesar.png"
+    "proyecto":"Pág. Home,Login,Reproductor,Footer,Navbar,git",
+    "foto": "/assets/About/cesar.png"
   },
   {
     "id": 6,
     "nombre":"Rocío Zingaretti",
     "edad":"24 años",
     "proyecto":"Pág. Error 404, Mockups",
-    "foto": "/src/assets/About/rocio.png"
+    "foto": "/assets/About/rocio.png"
   }
 ]

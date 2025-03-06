@@ -10,7 +10,7 @@ function DevelopAbout() {
           
           {data.map((developer)=> (
       
-             <Col xs={6} md={4}>
+             <Col xs={12} sm={6} md={4}>
                  <div className="flip-card">
                    <div className="flip-card-inner">
                        <div className="flip-card-front">
