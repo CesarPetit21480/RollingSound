@@ -18,7 +18,7 @@
   justify-content: center;
 }
 .carousel-button {
-  background: rgba(0, 255, 0, 0.7);
+  background: transparent;
   border: none;
   padding: 10px;
   color: black;
@@ -29,11 +29,3 @@
 }
 
 
-.carousel-button.prev {
-  left: 10px;
-  
-}
-
-.carousel-button.next {
-  right: 10px;
-}
