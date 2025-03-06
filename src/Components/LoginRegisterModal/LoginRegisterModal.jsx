@@ -67,6 +67,7 @@ const LoginRegisterModal = ({ show, handleClose }) => {
 
           if (validoPassword) {
             setUser(usuario);
+            localStorage.setItem("usuarioLogueado", JSON.stringify(usuario));
             Swal.fire({
               title:
                 "<h1 style='color: #007bff; font-weight: bold;'>BIENVENIDO</h1>",
