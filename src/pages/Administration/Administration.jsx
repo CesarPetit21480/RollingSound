@@ -1,131 +1,103 @@
-import React, { useState, useEffect } from "react";
-import { Button, Table, Modal, Alert, Image } from "react-bootstrap";
-import AlbumModal from "./AlbumModal";
+import React, { useState } from "react";
 import { userSearchMusic } from "../../hooks/userSearchMusic";
+import { Button, Container, Row, Col, Card, Modal, Form } from "react-bootstrap";
 
-const Administration = ({ isAuthenticated }) => {
-  const [albums, setAlbums] = useState([]);
-  const [showModal, setShowModal] = useState(false);
-  const [editedAlbum, setEditedAlbum] = useState(null);
-  const [selectedImage, setSelectedImage] = useState(null);
+const Administration = () => {
+  const { music, actualizarObjeto, eliminarCancion } = userSearchMusic();
+  const [show, setShow] = useState(false);
+  const [editingSong, setEditingSong] = useState(null);
+  const [formData, setFormData] = useState({
+    titulo: "",
+    cantante: "",
+    linkImagen: "",
+  });
 
-  const { music, actualizarObjeto } = userSearchMusic();
- 
-  useEffect(() => {
-    const savedAlbums = JSON.parse(localStorage.getItem("musicData")) || music;
-    setAlbums(savedAlbums);
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("albums", JSON.stringify(albums));
-  }, [albums]);
-
-  const handleSaveAlbum = (newAlbum) => {
-    if (editedAlbum) {
-      const updatedAlbums = albums.map((album) =>
-        album.name === editedAlbum.name
-          ? { ...editedAlbum, ...newAlbum }
-          : album
-      );
-      setAlbums(updatedAlbums);
-    } else {
-      setAlbums([...albums, { id: Date.now(), ...newAlbum }]);
-    }
-    setShowModal(false);
+  const handleEdit = (song) => {
+    setEditingSong(song.id);
+    setFormData(song);
+    setShow(true);
   };
 
-  const handleEditAlbum = (album) => {
-    setEditedAlbum(album);
-    setShowModal(true);
-    actualizarObjeto(id, albun);
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleDeleteAlbum = (id) => {
-    if (window.confirm("¿Estás seguro de eliminar este álbum?")) {
-      setAlbums(albums.filter((album) => album.id !== id));
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setEditingSong(null);
+    actualizarObjeto(editingSong, formData);
+    setShow(false);
+    setFormData({ titulo: "", cantante: "", linkImagen: "" });
   };
 
-  if (!isAuthenticated) {
-    return (
-      <div className="text-center mt-5 pt-5 pb-5">
-        <Alert variant="danger">No tienes permiso para ver esta página.</Alert>
-      </div>
-    );
-  }
+  const handleDelete = (id) => {
+    if (!id) return;
+    eliminarCancion(id);
+  };
 
   return (
-    <div className="mt-5 pt-5 pb-5 container">
-      <Button variant="primary" onClick={() => setShowModal(true)}>
-        + Agregar Álbum
-      </Button>
-      <Table striped bordered hover className="mt-3">
-        <thead>
-          <tr>
-            <th>Imagen</th>
-            <th>Álbum</th>
-            <th>Género</th>
-            <th>Canciones</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {albums.map((album) => (
-            <tr key={album.id}>
-              <td>
-                {album.imageUrl && (
-                  <Image
-                    src={album.imageUrl}
-                    thumbnail
-                    style={{ width: "100px", cursor: "pointer" }}
-                    onClick={() => setSelectedImage(album.imageUrl)}
-                  />
-                )}
-              </td>
-              <td>{album.name}</td>
-              <td>{album.genre}</td>
-              <td>
-                <ul>
-                  {album.songs.map((song, index) => (
-                    <li key={index}>{song}</li>
-                  ))}
-                </ul>
-              </td>
-              <td>
-                <Button
-                  variant="warning"
-                  onClick={() => handleEditAlbum(album)}
-                >
-                  Editar
-                </Button>
-                <Button
-                  variant="danger"
-                  className="ms-2"
-                  onClick={() => handleDeleteAlbum(album.id)}
-                >
-                  Eliminar
-                </Button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-      <AlbumModal
-        show={showModal}
-        handleClose={() => setShowModal(false)}
-        onSave={handleSaveAlbum}
-        editedAlbum={editedAlbum}
-      />
-      <Modal
-        show={!!selectedImage}
-        onHide={() => setSelectedImage(null)}
-        centered
-      >
-        <Modal.Body className="text-center">
-          {selectedImage && <Image src={selectedImage} fluid />}
+    <Container className="mt-5 pt-5">
+      <Row className="justify-content-center text-center">
+        <Col md={8}>
+          <h2 className="mb-4 text-white bg-dark p-3 rounded">Administración de Canciones</h2>
+          <Button variant="success" onClick={() => setShow(true)}>+ Agregar Canción</Button>
+        </Col>
+      </Row>
+
+      <Row className="mt-4 d-flex justify-content-center">
+        {music && music.length > 0 ? (
+          music.map((song) => (
+            <Col key={song.id} md={4} className="mb-4">
+              <Card className="shadow-sm">
+                <Card.Img
+                  variant="top"
+                  src={song.linkImagen && song.linkImagen.trim() !== "" ? song.linkImagen : "https://via.placeholder.com/150"}
+                  alt={song.titulo}
+                  style={{ height: "200px", objectFit: "cover" }}
+                />
+                <Card.Body className="text-center">
+                  <Card.Title>{song.titulo}</Card.Title>
+                  <Card.Text>{song.cantante}</Card.Text>
+                  <Button variant="warning" onClick={() => handleEdit(song)} className="me-2">
+                    Editar
+                  </Button>
+                  <Button variant="danger" onClick={() => handleDelete(song.id)}>
+                    Eliminar
+                  </Button>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))
+        ) : (
+          <p className="text-center mt-3">No hay canciones disponibles.</p>
+        )}
+      </Row>
+
+      <Modal show={show} onHide={() => setShow(false)} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>{editingSong ? "Editar Canción" : "Agregar Canción"}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group className="mb-3">
+              <Form.Label>Título</Form.Label>
+              <Form.Control type="text" name="titulo" value={formData.titulo} onChange={handleChange} required />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Cantante</Form.Label>
+              <Form.Control type="text" name="cantante" value={formData.cantante} onChange={handleChange} required />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Imagen (URL)</Form.Label>
+              <Form.Control type="text" name="linkImagen" value={formData.linkImagen} onChange={handleChange} required />
+            </Form.Group>
+            <div className="text-center">
+              <Button variant="primary" type="submit">Guardar</Button>
+            </div>
+          </Form>
         </Modal.Body>
       </Modal>
-    </div>
+    </Container>
   );
 };
 
