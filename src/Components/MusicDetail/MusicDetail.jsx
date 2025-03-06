@@ -14,7 +14,7 @@ function MusicDetail({ musica, onClose, isCollapsed }) {
         const newindex = (prev + 1) % musica.imagenesCarrusel.length;
         return newindex;
       });
-    }, 3000);
+    }, 1200);
 
     //limpiaos e intervalo
     return () => clearInterval(interval);
