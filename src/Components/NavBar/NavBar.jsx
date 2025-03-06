@@ -13,7 +13,9 @@ const NavBar = () => {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const [showModal, setShowModal] = useState(false);
   let navigate = useNavigate();
-  const { user, setUser } = useContext(Context);
+  const { user, setUser, loguer } = useContext(Context);
+
+  let usuarioLogueado = loguer ? loguer : user ? user : undefined;
 
   const handleLogout = () => {
     setUser(null);
@@ -69,7 +71,7 @@ const NavBar = () => {
               >
                 Top10
               </Nav.Link> */}
-              {user && (
+              {usuarioLogueado && (
                 <Nav.Link
                   onClick={() => navigate("/administration")}
                   className="active text-uppercase"
@@ -80,16 +82,16 @@ const NavBar = () => {
               )}
             </Nav>
           </Navbar.Collapse>
-          {user && (
+          {usuarioLogueado && (
             <Navbar.Text className="text-white mx-3 d-flex align-items-center">
               <img
-                src={user.foto}
+                src={usuarioLogueado.foto}
                 alt="User"
                 className="rounded-circle me-2"
                 style={{ width: "30px", height: "30px", objectFit: "cover" }}
                 onClick={handleLogout}
               />
-              {user.username.toUpperCase()}
+              {usuarioLogueado.username.toUpperCase()}
             </Navbar.Text>
           )}
 
