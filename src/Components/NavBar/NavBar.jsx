@@ -62,13 +62,13 @@ const NavBar = () => {
                 About
               </Nav.Link>
 
-              <Nav.Link
+              {/* <Nav.Link
                 onClick={() => navigate("/top10")}
                 className="active text-uppercase"
                 style={{ cursor: "pointer" }}
               >
                 Top10
-              </Nav.Link>
+              </Nav.Link> */}
               {user && (
                 <Nav.Link
                   onClick={() => navigate("/administration")}
