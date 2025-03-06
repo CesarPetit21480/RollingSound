@@ -6,7 +6,8 @@
   margin: 0;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -16,7 +17,7 @@ html, body {
 
 body {
   font-family: "Poppins", serif;
-  background-image: url("/public/background/fondowhits.png");
+  background-image: url("/background/fondowhits.png");
   background-size: cover;
   background-position: center;
 }
