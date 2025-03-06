@@ -19,6 +19,8 @@ const NavBar = () => {
 
   const handleLogout = () => {
     setUser(null);
+    localStorage.removeItem("userLogueado");
+
     navigate("/");
   };
   return (
