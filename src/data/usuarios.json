@@ -4,7 +4,7 @@
         "username": "cpetit",
         "email": "cpetit@hotmail.com",
         "nombre": "Cesar Petit",
-        "password": "123456",
+        "password": "$2b$10$/Ah4kxES0bqtdy2jfRKMPOuqv/v7/fDwZ2.iwpmainC3xYq7auNNC",
         "foto": "/assets/About/cesar.png"
     },
     {
@@ -12,7 +12,7 @@
         "username": "emarquez",
         "email": "eduardoMarquez@hotmail.com",
         "nombre": "Eduardo Marquez",
-        "password": "12345",
+        "password": "$2b$10$/Ah4kxES0bqtdy2jfRKMPOuqv/v7/fDwZ2.iwpmainC3xYq7auNNC",
         "foto": "/assets/About/eduardo.png"
     },
     {
@@ -20,7 +20,7 @@
         "username": "elci",
         "email": "elci@hotmail.com",
         "nombre": "ELcira",
-        "password": "12345",
+        "password": "$2b$10$/Ah4kxES0bqtdy2jfRKMPOuqv/v7/fDwZ2.iwpmainC3xYq7auNNC",
         "foto": "/assets/About/elci.png"
     },
     {
@@ -28,7 +28,7 @@
         "username": "rzingaretti",
         "email": "rocio@hotmail.com",
         "nombre": "Rocio Zingaretti",
-        "password": "12345",
+        "password": "$2b$10$/Ah4kxES0bqtdy2jfRKMPOuqv/v7/fDwZ2.iwpmainC3xYq7auNNC",
         "foto": "/assets/About/rocio.png"
     },
     {
@@ -36,7 +36,7 @@
         "username": "mchavez",
         "email": "mario@hotmail.com",
         "nombre": "Mario Chavez",
-        "password": "12345",
+        "password": "$2b$10$/Ah4kxES0bqtdy2jfRKMPOuqv/v7/fDwZ2.iwpmainC3xYq7auNNC",
         "foto": "/assets/About/mario.png"
     },
     {
@@ -44,7 +44,7 @@
         "username": "jpavon",
         "email": "jpavon@hotmail.com",
         "nombre": "Joaquin Pavon",
-        "password": "12345",
+        "password": "$2b$10$/Ah4kxES0bqtdy2jfRKMPOuqv/v7/fDwZ2.iwpmainC3xYq7auNNC",
         "foto": "/assets/About/joaquin.png"
     }
 ]
