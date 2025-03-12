@@ -39,7 +39,7 @@ const Administration = () => {
     <Container className="mt-5 pt-5">
       <Row className="justify-content-center text-center">
         <Col md={8}>
-          <h2 className="mb-4 text-white bg-dark p-3 rounded">Administración de Canciones</h2>
+          <h2 className="mb-4 text-white p-3" style={{backgroundColor:"rgb(24, 77, 37)"}}>Administración de Canciones</h2>
           <Button variant="success" onClick={() => setShow(true)}>+ Agregar Canción</Button>
         </Col>
       </Row>
@@ -81,11 +81,13 @@ const Administration = () => {
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3">
               <Form.Label>Título</Form.Label>
-              <Form.Control type="text" name="titulo" value={formData.titulo} onChange={handleChange} required />
+              <Form.Control type="text" name="titulo" value={formData.titulo} onChange={handleChange} required minLength={4}
+              maxLength={40} />
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Cantante</Form.Label>
-              <Form.Control type="text" name="cantante" value={formData.cantante} onChange={handleChange} required />
+              <Form.Control type="text" name="cantante" value={formData.cantante} onChange={handleChange} required minLength={4}
+              maxLength={40} />
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Imagen (URL)</Form.Label>

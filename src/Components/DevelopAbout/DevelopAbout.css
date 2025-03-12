@@ -5,7 +5,6 @@
 /* contenedor de tarjetas invertidas: establece el ancho y el alto como quieras.Propiedad de borde para demostrar que el giro en sí sale del cuadro al pasar el mouse */
 .flip-card {
   background-color: transparent;
-  
   height: 250px;
   perspective: 1000px; /* Efecto 3D */
   margin-bottom: 40px;
@@ -49,5 +48,7 @@
 }
 .row{
   display: flex;
-
+}
+h4 {
+  background-color: rgb(46, 97, 58);
 }

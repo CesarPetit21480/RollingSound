@@ -23,7 +23,7 @@ const NavBar = () => {
         <Container fluid>
           <Navbar.Brand>
             <Link to="/" className="navbar-brand text-success fw-semibold">
-              Rooling Sound
+              Rolling Sound
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle
@@ -38,20 +38,17 @@ const NavBar = () => {
             />
             <Nav className="ms-auto w-100 d-flex justify-content-start">
               <Nav.Link as={Link} to="/" className="active text-uppercase">
-                Home
+                Inicio
               </Nav.Link>
               <Nav.Link as={Link} to="/about" className="active text-uppercase">
-                About
-              </Nav.Link>
-              <Nav.Link as={Link} to="/top10" className="active text-uppercase">
-                Top10
+                Nosotros
               </Nav.Link>
               <Nav.Link
                 as={Link}
                 to="/administration"
                 className="active text-uppercase"
               >
-                Administration
+                Administracion
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
@@ -65,7 +62,7 @@ const NavBar = () => {
           </Button>
            */}
 
-<Button onClick={() => setShowModal(true)}>
+       <Button onClick={() => setShowModal(true)} style={{backgroundColor: "rgb(39, 94, 53)", border: "none"}}> 
             <FaUserAlt size={25} />
           </Button>
         </Container>

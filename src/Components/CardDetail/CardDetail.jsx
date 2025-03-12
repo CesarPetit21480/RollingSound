@@ -34,8 +34,8 @@ const CardDetail = ({ musica }) => {
 
   return (
     <div className="container text-center">
-      <h2 className="text-center text-bg-primary mb-5 text-uppercase fw-bold fs-1 mt-5">
-        Rolling Sound Tracks
+      <h2 className="text-center text-white mb-5 text-uppercase fw-bold fs-1 mt-5" style={{backgroundColor:"rgb(24, 77, 37)"}}>
+        Rolling Sound Canciones
       </h2>
 
       <div className="d-flex flex-wrap justify-content-center gap-4">

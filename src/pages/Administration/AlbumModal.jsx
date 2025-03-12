@@ -48,6 +48,7 @@ const AlbumModal = ({ show, handleClose, onSave, editedAlbum }) => {
               value={album.name}
               onChange={handleChange}
               required
+              
             />
           </Form.Group>
           <Form.Group>
@@ -58,6 +59,7 @@ const AlbumModal = ({ show, handleClose, onSave, editedAlbum }) => {
               value={album.genre}
               onChange={handleChange}
               required
+              
             />
           </Form.Group>
           <Form.Group>
