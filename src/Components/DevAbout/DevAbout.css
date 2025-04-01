@@ -1,11 +1,8 @@
-.whit{
-    color: white;
-    backdrop-filter: blur(1.5px);
+.whit {
+  color: white;
+  backdrop-filter: blur(1.5px);
 }
-.whit-des{
-    color: white;
-   margin-bottom: 40px; 
-}
-h3 { 
-    background-color: rgb(24, 77, 37);
+.whit-des {
+  color: white;
+  margin-bottom: 40px;
 }

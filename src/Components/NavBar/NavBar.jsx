@@ -1,17 +1,29 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Container, Nav, Navbar, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+
 import { FaUserAlt } from "react-icons/fa";
 import "./NavBar.css";
 import LoginRegisterModal from "../LoginRegisterModal/LoginRegisterModal";
-
-
+import { useNavigate } from "react-router";
+import { Context } from "../../Context/Context";
 
 const NavBar = () => {
   /* const [showLogin, setShowLogin] = useState(false);
   const [showRegister, setShowRegister] = useState(false); */
   const [isCollapsed, setIsCollapsed] = useState(true);
   const [showModal, setShowModal] = useState(false);
+  let navigate = useNavigate();
+  const { user, setUser, loguer, setLoguer } = useContext(Context);
+
+  let usuarioLogueado = loguer ? loguer : user ? user : undefined;
+
+  const handleLogout = () => {
+    setUser(null);
+    setLoguer(null);
+    localStorage.removeItem("usuarioLogueado");
+
+    navigate("/");
+  };
   return (
     <>
       <Navbar
@@ -21,10 +33,12 @@ const NavBar = () => {
         className="fixed-top bg-body-tertiary shadow"
       >
         <Container fluid>
-          <Navbar.Brand>
-            <Link to="/" className="navbar-brand text-success fw-semibold">
-              Rolling Sound
-            </Link>
+          <Navbar.Brand
+            className="navbar-brand text-success fw-semibold"
+            onClick={() => navigate("/")}
+            style={{ cursor: "pointer" }}
+          >
+            Rolling Sound
           </Navbar.Brand>
           <Navbar.Toggle
             aria-controls="basic-navbar-nav"
@@ -37,6 +51,7 @@ const NavBar = () => {
               alt="logo"
             />
             <Nav className="ms-auto w-100 d-flex justify-content-start">
+<<<<<<< HEAD
               <Nav.Link as={Link} to="/" className="active text-uppercase">
                 Inicio
               </Nav.Link>
@@ -46,32 +61,78 @@ const NavBar = () => {
               <Nav.Link
                 as={Link}
                 to="/administration"
+=======
+              <Nav.Link
+                onClick={() => navigate("/")}
                 className="active text-uppercase"
+                style={{ cursor: "pointer" }}
               >
+                Home
+              </Nav.Link>
+
+              <Nav.Link
+                onClick={() => navigate("/about")}
+                className="active text-uppercase"
+                style={{ cursor: "pointer" }}
+              >
+                About
+              </Nav.Link>
+
+              {/* <Nav.Link
+                onClick={() => navigate("/top10")}
+>>>>>>> main
+                className="active text-uppercase"
+                style={{ cursor: "pointer" }}
+              >
+<<<<<<< HEAD
                 Administracion
               </Nav.Link>
+=======
+                Top10
+              </Nav.Link> */}
+              {usuarioLogueado && (
+                <Nav.Link
+                  onClick={() => navigate("/administration")}
+                  className="active text-uppercase"
+                  style={{ cursor: "pointer" }}
+                >
+                  Administration
+                </Nav.Link>
+              )}
+>>>>>>> main
             </Nav>
           </Navbar.Collapse>
-          
-          {/* <Button onClick={() => setShowLogin(true)}>
-            <FaUserAlt size={25} />
-          </Button>
+          {usuarioLogueado && (
+            <Navbar.Text className="text-white mx-3 d-flex align-items-center">
+              <img
+                src={usuarioLogueado.foto}
+                alt="User"
+                className="rounded-circle me-2"
+                style={{ width: "30px", height: "30px", objectFit: "cover" }}
+                onClick={handleLogout}
+              />
+              {usuarioLogueado.username.toUpperCase()}
+            </Navbar.Text>
+          )}
 
+<<<<<<< HEAD
           <Button onClick={() => setShowRegister(true)}>
             <FaUserAlt size={25} />
           </Button>
            */}
 
        <Button onClick={() => setShowModal(true)} style={{backgroundColor: "rgb(39, 94, 53)", border: "none"}}> 
+=======
+          <Button Button onClick={() => setShowModal(true)}>
+>>>>>>> main
             <FaUserAlt size={25} />
           </Button>
         </Container>
       </Navbar>
-
-      {/* <LoginModal show={showLogin} handleClose={() => setShowLogin(false)} />
-      <RegisterModal show={showRegister} handleClose={() => setShowRegister(false)}/> */}
-
-<LoginRegisterModal show={showModal} handleClose={() => setShowModal(false)} />
+      <LoginRegisterModal
+        show={showModal}
+        handleClose={() => setShowModal(false)}
+      />
     </>
   );
 };

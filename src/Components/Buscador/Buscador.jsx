@@ -1,21 +1,21 @@
 import "./Buscador.css";
 
 // eslint-disable-next-line react/prop-types
-function Buscador({ valorInput, onChangeInput, handleOnSubmit }) {
+function Buscador({ valorInput, onChangeInput }) {
   return (
-    <form className="form-buscador" onSubmit={handleOnSubmit}>
-      <label htmlFor="">Selecciona tu Musica </label>
+    <div className="form-buscador">
+      <label htmlFor="busqueda">Selecciona tu Música</label>
       <div className="input-container">
         <input
           type="text"
           id="busqueda"
           value={valorInput}
-          onChange={onChangeInput}
+          onChange={onChangeInput} 
           className="buscador"
         />
-        <button type="submit">🔎</button>
+        <button type="button" disabled>🔎</button> 
       </div>
-    </form>
+    </div>
   );
 }
 

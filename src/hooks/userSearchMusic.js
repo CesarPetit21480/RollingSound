@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import data from "../data/musica.json";
 
 export const userSearchMusic = () => {
-  const musicArray = Array.isArray(data) ? data : [];  
+  const musicArray = Array.isArray(data) ? data : [];
 
   const getStoredMusic = () => {
     const storedMusic = localStorage.getItem("musicData");
@@ -11,30 +11,25 @@ export const userSearchMusic = () => {
 
   const [music, setMusic] = useState(getStoredMusic());
   const [valorMusic, setvalorMusic] = useState("");
+  const [filteredMusic, setFilteredMusic] = useState(music);
 
   useEffect(() => {
     localStorage.setItem("musicData", JSON.stringify(music));
+    setFilteredMusic(music);
   }, [music]);
 
   const onChangeInput = (e) => {
     const valor = e.target.value;
     setvalorMusic(valor);
-  };
 
-  const getMusic = async (filter) => {
-    let totalMusic = [];
+    // Filtrar solo en `filteredMusic`, sin modificar `music`
+    const musicSearch = music.filter(
+      (m) =>
+        m.titulo.toLowerCase().includes(valor.toLowerCase()) ||
+        m.cantante.toLowerCase().includes(valor.toLowerCase())
+    );
 
-    if (!filter) totalMusic = musicArray;
-    else {
-      const musicFilter = musicArray.filter(
-        (m) =>
-          m.titulo.toLowerCase().includes(filter.toLowerCase()) ||
-          m.cantante.toLowerCase().includes(filter.toLowerCase())
-      );
-      totalMusic = musicFilter;
-    }
-
-    return totalMusic;
+    setFilteredMusic(musicSearch);
   };
 
   const actualizarObjeto = (idParaActualizar, elemento) => {
@@ -64,17 +59,10 @@ export const userSearchMusic = () => {
     });
   };
 
-  const handleOnSubmit = async (e) => {
-    e.preventDefault();
-    const musicSearch = await getMusic(valorMusic);
-    setMusic(musicSearch);
-  };
-
   return {
     valorMusic,
     onChangeInput,
-    handleOnSubmit,
-    music,
+    music: filteredMusic,
     actualizarObjeto,
     eliminarCancion,
   };
