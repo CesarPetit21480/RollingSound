@@ -150,14 +150,8 @@ const LoginRegisterModal = ({ show, handleClose }) => {
                 placeholder="Ingresa tu contraseña"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-<<<<<<< HEAD
-                required 
-                minLength={6}
-                maxLength={30}
-=======
                 required
                 minLength={6}
->>>>>>> main
               />
             </Form.Group>
 
@@ -170,11 +164,6 @@ const LoginRegisterModal = ({ show, handleClose }) => {
                     placeholder="Repite tu contraseña"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-<<<<<<< HEAD
-                    required 
-                    minLength={6} 
-                    maxLength={30}
-=======
                     required
                     minLength={6}
                   />
@@ -200,7 +189,6 @@ const LoginRegisterModal = ({ show, handleClose }) => {
                     onChange={(e) => setFoto(e.target.value)}
                     required
                     minLength={6}
->>>>>>> main
                   />
                 </Form.Group>
               </>

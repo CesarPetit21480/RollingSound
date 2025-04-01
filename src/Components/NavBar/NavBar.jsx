@@ -51,17 +51,6 @@ const NavBar = () => {
               alt="logo"
             />
             <Nav className="ms-auto w-100 d-flex justify-content-start">
-<<<<<<< HEAD
-              <Nav.Link as={Link} to="/" className="active text-uppercase">
-                Inicio
-              </Nav.Link>
-              <Nav.Link as={Link} to="/about" className="active text-uppercase">
-                Nosotros
-              </Nav.Link>
-              <Nav.Link
-                as={Link}
-                to="/administration"
-=======
               <Nav.Link
                 onClick={() => navigate("/")}
                 className="active text-uppercase"
@@ -80,14 +69,9 @@ const NavBar = () => {
 
               {/* <Nav.Link
                 onClick={() => navigate("/top10")}
->>>>>>> main
                 className="active text-uppercase"
                 style={{ cursor: "pointer" }}
               >
-<<<<<<< HEAD
-                Administracion
-              </Nav.Link>
-=======
                 Top10
               </Nav.Link> */}
               {usuarioLogueado && (
@@ -99,7 +83,6 @@ const NavBar = () => {
                   Administration
                 </Nav.Link>
               )}
->>>>>>> main
             </Nav>
           </Navbar.Collapse>
           {usuarioLogueado && (
@@ -115,16 +98,7 @@ const NavBar = () => {
             </Navbar.Text>
           )}
 
-<<<<<<< HEAD
-          <Button onClick={() => setShowRegister(true)}>
-            <FaUserAlt size={25} />
-          </Button>
-           */}
-
-       <Button onClick={() => setShowModal(true)} style={{backgroundColor: "rgb(39, 94, 53)", border: "none"}}> 
-=======
           <Button Button onClick={() => setShowModal(true)}>
->>>>>>> main
             <FaUserAlt size={25} />
           </Button>
         </Container>
