@@ -3,6 +3,7 @@ import "react-h5-audio-player/lib/styles.css";
 import data from "../../data/musica.json";
 import { Context } from "../../Context/Context";
 import { useContext, useState, useEffect } from "react";
+import "./MusicPlayer.css"
 
 const MusicPlayer = () => {
   const { track } = useContext(Context);
@@ -22,6 +23,7 @@ const MusicPlayer = () => {
 
   return (
     <AudioPlayer
+    className="custom-music-player"
       autoPlay
       src={currentTrack || ""}
       onPlay={() => console.log("Reproduciendo:", currentTrack)}

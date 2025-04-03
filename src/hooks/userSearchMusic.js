@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import data from "../data/musica.json";
 
+
 export const userSearchMusic = () => {
   const musicArray = Array.isArray(data) ? data : [];
 
@@ -12,6 +13,8 @@ export const userSearchMusic = () => {
   const [music, setMusic] = useState(getStoredMusic());
   const [valorMusic, setvalorMusic] = useState("");
   const [filteredMusic, setFilteredMusic] = useState(music);
+  const [showModal, setShowModal] = useState(false);
+  const [songToDelete, setSongToDelete] = useState(null);
 
   useEffect(() => {
     localStorage.setItem("musicData", JSON.stringify(music));
@@ -22,7 +25,6 @@ export const userSearchMusic = () => {
     const valor = e.target.value;
     setvalorMusic(valor);
 
-    // Filtrar solo en `filteredMusic`, sin modificar `music`
     const musicSearch = music.filter(
       (m) =>
         m.titulo.toLowerCase().includes(valor.toLowerCase()) ||
@@ -51,12 +53,30 @@ export const userSearchMusic = () => {
     });
   };
 
-  const eliminarCancion = (idParaEliminar) => {
+const eliminarCancion = (idParaEliminar) => {
+  const confirmacion = window.confirm("¿Estás seguro de que deseas eliminar esta canción?");
+  
+  if (confirmacion) {
     setMusic((prevMusic) => {
       const nuevoArray = prevMusic.filter((item) => item.id !== idParaEliminar);
       localStorage.setItem("musicData", JSON.stringify(nuevoArray));
       return nuevoArray;
     });
+  }
+};
+
+
+  const confirmarEliminacion = (id) => {
+    setSongToDelete(id);
+    setShowModal(true);
+  };
+
+  const handleConfirmDelete = () => {
+    if (songToDelete !== null) {
+      eliminarCancion(songToDelete);
+      setShowModal(false);
+      setSongToDelete(null);
+    }
   };
 
   return {
@@ -65,5 +85,9 @@ export const userSearchMusic = () => {
     music: filteredMusic,
     actualizarObjeto,
     eliminarCancion,
+    confirmarEliminacion,
+    showModal,
+    setShowModal,
+    handleConfirmDelete,
   };
 };
