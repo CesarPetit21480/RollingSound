@@ -9,7 +9,8 @@ const DevAbout = (developer) => {
     <>
       <Container>
         <div className="whit">
-          <h3>Nuestra Historia</h3>
+          
+          <h3  className="text-center text-bg-primary mb-5 text-uppercase fw-bold fs-1 mt-5 rounded px-3 py-2">Nuestra Historia</h3>
           <p>
             En Rolling Sound, creemos que la música tiene el poder de unir a las
             personas y transformar emociones. Somos un equipo apasionado por la

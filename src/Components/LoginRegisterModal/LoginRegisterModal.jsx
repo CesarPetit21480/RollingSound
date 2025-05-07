@@ -140,6 +140,8 @@ const LoginRegisterModal = ({ show, handleClose }) => {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
+                minLength={6}
+                maxLength={20}
               />
             </Form.Group>
 
@@ -152,6 +154,7 @@ const LoginRegisterModal = ({ show, handleClose }) => {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 minLength={6}
+                maxLength={20}
               />
             </Form.Group>
 
@@ -166,6 +169,7 @@ const LoginRegisterModal = ({ show, handleClose }) => {
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     required
                     minLength={6}
+                    maxLength={20}
                   />
                 </Form.Group>
 
@@ -177,6 +181,7 @@ const LoginRegisterModal = ({ show, handleClose }) => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
+                    maxLength={30}
                   />
                 </Form.Group>
 

@@ -56,7 +56,7 @@ const NavBar = () => {
                 className="active text-uppercase"
                 style={{ cursor: "pointer" }}
               >
-                Home
+                Inicio
               </Nav.Link>
 
               <Nav.Link
@@ -64,7 +64,7 @@ const NavBar = () => {
                 className="active text-uppercase"
                 style={{ cursor: "pointer" }}
               >
-                About
+                Nuestra historia
               </Nav.Link>
 
               {/* <Nav.Link
@@ -80,7 +80,7 @@ const NavBar = () => {
                   className="active text-uppercase"
                   style={{ cursor: "pointer" }}
                 >
-                  Administration
+                  Administracion
                 </Nav.Link>
               )}
             </Nav>

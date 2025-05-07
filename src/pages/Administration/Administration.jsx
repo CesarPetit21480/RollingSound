@@ -47,7 +47,7 @@ const Administration = () => {
     <Container className="mt-5 pt-5">
       <Row className="justify-content-center text-center">
         <Col md={8}>
-          <h2 className="mb-4 text-white bg-dark p-3 rounded">
+          <h2 className="text-center text-bg-primary mb-5 text-uppercase fw-bold fs-1 mt-5 rounded px-3 py-2">
             Administración de Canciones
           </h2>
           <Button variant="success" onClick={() => setShow(true)}>
